@@ -1,0 +1,25 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:43:22Z"
+involvedObject:
+  apiVersion: apps/v1
+  kind: Deployment
+  name: katafygio
+  namespace: default
+  resourceVersion: "1609604"
+  uid: 1029f925-71a0-4904-b3c9-cc0dd63881bd
+kind: Event
+lastTimestamp: "2024-01-25T06:43:22Z"
+message: Scaled down replica set katafygio-88f5d8f5f to 0 from 1
+metadata:
+  creationTimestamp: "2024-01-25T06:43:22Z"
+  name: katafygio.17ad8407b84fddc5
+  namespace: default
+  uid: 0c827904-c43d-40c1-be8f-73c777dbed27
+reason: ScalingReplicaSet
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: deployment-controller
+type: Normal

@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 2
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:38Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{cert-manager-cainjector}
+  kind: Pod
+  name: cert-manager-cainjector-bdd866bd4-wmj9t
+  namespace: cert-manager
+  resourceVersion: "1608645"
+  uid: ea922760-7490-4dad-a5d9-9d8ca37e7685
+kind: Event
+lastTimestamp: "2024-01-25T06:33:20Z"
+message: Created container cert-manager-cainjector
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: cert-manager-cainjector-bdd866bd4-wmj9t.17ad8371ba2415fe
+  namespace: cert-manager
+  uid: 657b0f4f-37d0-4691-936d-686636200aff
+reason: Created
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

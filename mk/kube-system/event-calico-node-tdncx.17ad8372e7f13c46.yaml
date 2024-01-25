@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:43Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{calico-node}
+  kind: Pod
+  name: calico-node-tdncx
+  namespace: kube-system
+  resourceVersion: "1608636"
+  uid: 5f40c6a5-9fb4-4214-ace2-2e8e84832da4
+kind: Event
+lastTimestamp: "2024-01-25T06:32:43Z"
+message: Container image "docker.io/calico/node:v3.26.1" already present on machine
+metadata:
+  creationTimestamp: "2024-01-25T06:32:43Z"
+  name: calico-node-tdncx.17ad8372e7f13c46
+  namespace: kube-system
+  uid: 3de753d8-1ca8-44c0-84d0-fdd0fab0aa11
+reason: Pulled
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

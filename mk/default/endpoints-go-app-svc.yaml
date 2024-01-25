@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2023-10-31T07:09:41Z"
+  creationTimestamp: "2023-10-31T07:09:41Z"
+  name: go-app-svc
+  namespace: default
+  uid: 1ba440fa-8c8a-45dd-8232-d500f5e7775d
+subsets:
+- addresses:
+  - ip: 10.244.0.240
+    nodeName: minikube
+    targetRef:
+      kind: Pod
+      name: go-app-697df4b455-j7lrl
+      namespace: default
+      uid: c66b1aaa-d693-4cc3-b940-8a7a7a58da31
+  ports:
+  - port: 8080
+    protocol: TCP

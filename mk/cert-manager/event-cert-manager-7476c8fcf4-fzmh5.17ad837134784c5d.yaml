@@ -1,0 +1,26 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:36Z"
+involvedObject:
+  apiVersion: v1
+  kind: Pod
+  name: cert-manager-7476c8fcf4-fzmh5
+  namespace: cert-manager
+  resourceVersion: "1608659"
+  uid: 8f6e0df1-1bad-4c54-9494-7ac25a20a5b6
+kind: Event
+lastTimestamp: "2024-01-25T06:32:36Z"
+message: Pod sandbox changed, it will be killed and re-created.
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: cert-manager-7476c8fcf4-fzmh5.17ad837134784c5d
+  namespace: cert-manager
+  uid: e2c8a611-ed5d-417e-81f9-973cd045e24b
+reason: SandboxChanged
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

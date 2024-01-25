@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  annotations:
+    deployment.kubernetes.io/desired-replicas: "1"
+    deployment.kubernetes.io/max-replicas: "1"
+    deployment.kubernetes.io/revision: "2"
+  creationTimestamp: "2024-01-25T06:43:23Z"
+  labels:
+    app: katafygio
+    chart: katafygio-0.5.1
+    heritage: Helm
+    pod-template-hash: 8c75bff96
+    release: katafygio
+  name: katafygio-8c75bff96
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Deployment
+    name: katafygio
+    uid: 1029f925-71a0-4904-b3c9-cc0dd63881bd
+  uid: 5d6ae3e9-e134-4c38-bad4-238eb7b5d80d
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: katafygio
+      pod-template-hash: 8c75bff96
+      release: katafygio
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: katafygio
+        chart: katafygio-0.5.1
+        heritage: Helm
+        pod-template-hash: 8c75bff96
+        release: katafygio
+    spec:
+      containers:
+      - args:
+        - --local-dir=/var/lib/katafygio/data
+        - --healthcheck-port=8080
+        - --log-level=info
+        - --log-output=stdout
+        - --resync-interval=300
+        - --exclude-kind=replicasets
+        - --exclude-kind=endpoints
+        - --exclude-kind=events
+        env:
+        - name: CLUSTER_NAME
+          value: JCNR
+        image: sharmag07/katafygio:u1
+        imagePullPolicy: Always
+        name: katafygio
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /var/lib/katafygio/data
+          name: katafygio-data
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        fsGroup: 65534
+      serviceAccount: katafygio
+      serviceAccountName: katafygio
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: katafygio-data
+        persistentVolumeClaim:
+          claimName: katafygio
+status:
+  availableReplicas: 1
+  fullyLabeledReplicas: 1
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1

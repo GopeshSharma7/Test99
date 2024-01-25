@@ -1,0 +1,26 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:36Z"
+involvedObject:
+  apiVersion: v1
+  kind: Pod
+  name: calico-kube-controllers-85578c44bf-cm6kg
+  namespace: kube-system
+  resourceVersion: "1608633"
+  uid: 0f1654c2-63ea-4a9b-8947-f6e947666153
+kind: Event
+lastTimestamp: "2024-01-25T06:32:36Z"
+message: Pod sandbox changed, it will be killed and re-created.
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: calico-kube-controllers-85578c44bf-cm6kg.17ad837134551e04
+  namespace: kube-system
+  uid: 2cdb7e3d-c6e0-45cc-b144-07ec4c66aef1
+reason: SandboxChanged
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

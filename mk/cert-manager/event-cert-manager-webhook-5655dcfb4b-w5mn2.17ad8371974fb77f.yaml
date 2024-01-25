@@ -1,0 +1,28 @@
+apiVersion: v1
+count: 2
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:37Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{cert-manager-webhook}
+  kind: Pod
+  name: cert-manager-webhook-5655dcfb4b-w5mn2
+  namespace: cert-manager
+  resourceVersion: "1608665"
+  uid: ddcad1b0-18e1-484a-bedb-cf9abdfc5b90
+kind: Event
+lastTimestamp: "2024-01-25T06:33:22Z"
+message: Container image "quay.io/jetstack/cert-manager-webhook:v1.12.0" already present
+  on machine
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: cert-manager-webhook-5655dcfb4b-w5mn2.17ad8371974fb77f
+  namespace: cert-manager
+  uid: 2edc3f41-dc7a-4481-bcb4-d7bf6379471e
+reason: Pulled
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

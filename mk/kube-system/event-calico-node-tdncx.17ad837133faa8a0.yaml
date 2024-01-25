@@ -1,0 +1,26 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:36Z"
+involvedObject:
+  apiVersion: v1
+  kind: Pod
+  name: calico-node-tdncx
+  namespace: kube-system
+  resourceVersion: "1608636"
+  uid: 5f40c6a5-9fb4-4214-ace2-2e8e84832da4
+kind: Event
+lastTimestamp: "2024-01-25T06:32:36Z"
+message: Pod sandbox changed, it will be killed and re-created.
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: calico-node-tdncx.17ad837133faa8a0
+  namespace: kube-system
+  uid: 1276b1e3-10fe-4986-9eb2-3e58da648176
+reason: SandboxChanged
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

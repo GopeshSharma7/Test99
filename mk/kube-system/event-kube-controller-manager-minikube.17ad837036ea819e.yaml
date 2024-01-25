@@ -1,0 +1,26 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:31Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{kube-controller-manager}
+  kind: Pod
+  name: kube-controller-manager-minikube
+  namespace: kube-system
+  uid: b3702ceb912504d37098b922ccdcfa41
+kind: Event
+lastTimestamp: "2024-01-25T06:32:31Z"
+message: Started container kube-controller-manager
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: kube-controller-manager-minikube.17ad837036ea819e
+  namespace: kube-system
+  uid: 5bdbf315-9c63-43c5-92f2-ef236f8d46d6
+reason: Started
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

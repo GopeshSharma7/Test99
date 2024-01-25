@@ -1,0 +1,28 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:43Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{katafygio}
+  kind: Pod
+  name: katafygio-88f5d8f5f-4pwh5
+  namespace: default
+  resourceVersion: "1608657"
+  uid: 277abf8b-b990-46fc-bd66-30e0c27d8eca
+kind: Event
+lastTimestamp: "2024-01-25T06:32:43Z"
+message: Successfully pulled image "sharmag07/katafygio:latest" in 2.343188876s (5.05841321s
+  including waiting)
+metadata:
+  creationTimestamp: "2024-01-25T06:32:43Z"
+  name: katafygio-88f5d8f5f-4pwh5.17ad8372ee426f34
+  namespace: default
+  uid: 04fa35ae-bdde-4b0a-98db-ca3da5c40e1d
+reason: Pulled
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

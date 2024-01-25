@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2023-11-07T08:36:13Z"
+  creationTimestamp: "2023-11-07T08:36:13Z"
+  name: k8s-delete-validation-webhook
+  namespace: default
+  uid: 6d5ba034-90f0-4212-87d4-f5cfae411ee4

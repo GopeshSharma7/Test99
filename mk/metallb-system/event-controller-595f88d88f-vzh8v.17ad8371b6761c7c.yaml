@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 2
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:38Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{controller}
+  kind: Pod
+  name: controller-595f88d88f-vzh8v
+  namespace: metallb-system
+  resourceVersion: "1608589"
+  uid: ba0eb06a-abf9-4545-b945-8959f7317a30
+kind: Event
+lastTimestamp: "2024-01-25T06:33:09Z"
+message: Created container controller
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: controller-595f88d88f-vzh8v.17ad8371b6761c7c
+  namespace: metallb-system
+  uid: bf06f5b1-0bf2-4c38-98b8-658a4036ef9c
+reason: Created
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

@@ -1,0 +1,38 @@
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 10.244.0.240
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: minikube
+  targetRef:
+    kind: Pod
+    name: go-app-697df4b455-j7lrl
+    namespace: default
+    uid: c66b1aaa-d693-4cc3-b940-8a7a7a58da31
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2023-10-31T07:09:41Z"
+  creationTimestamp: "2023-10-31T07:09:41Z"
+  generateName: go-app-svc-
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: go-app-svc
+  name: go-app-svc-8b5zb
+  namespace: default
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: go-app-svc
+    uid: 1a3cda5e-b411-4e9c-bedd-87d8af51a9ea
+  uid: 8183d1ee-b608-4611-8cc4-e21681df2d9e
+ports:
+- name: ""
+  port: 8080
+  protocol: TCP

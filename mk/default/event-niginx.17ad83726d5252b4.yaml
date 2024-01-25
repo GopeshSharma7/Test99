@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:41Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{niginx}
+  kind: Pod
+  name: niginx
+  namespace: default
+  resourceVersion: "1608643"
+  uid: dc7bc6c4-ab93-41e3-8e16-6c57c985f904
+kind: Event
+lastTimestamp: "2024-01-25T06:32:41Z"
+message: Started container niginx
+metadata:
+  creationTimestamp: "2024-01-25T06:32:41Z"
+  name: niginx.17ad83726d5252b4
+  namespace: default
+  uid: aa34172b-41b6-4b43-a4d2-6f2f8c04d963
+reason: Started
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

@@ -1,0 +1,36 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRole","metadata":{"annotations":{},"name":"project-manager-role"},"rules":[{"apiGroups":["demo.demo.kcd.io"],"resources":["demoresources"],"verbs":["create","delete","get","list","patch","update","watch"]},{"apiGroups":["demo.demo.kcd.io"],"resources":["demoresources/finalizers"],"verbs":["update"]},{"apiGroups":["demo.demo.kcd.io"],"resources":["demoresources/status"],"verbs":["get","patch","update"]}]}
+  creationTimestamp: "2023-10-11T16:15:22Z"
+  name: project-manager-role
+  uid: be927402-01f6-409c-a3a5-b57521e69113
+rules:
+- apiGroups:
+  - demo.demo.kcd.io
+  resources:
+  - demoresources
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - demo.demo.kcd.io
+  resources:
+  - demoresources/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - demo.demo.kcd.io
+  resources:
+  - demoresources/status
+  verbs:
+  - get
+  - patch
+  - update

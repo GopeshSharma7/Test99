@@ -1,0 +1,28 @@
+apiVersion: v1
+count: 2
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:48Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{calico-kube-controllers}
+  kind: Pod
+  name: calico-kube-controllers-85578c44bf-cm6kg
+  namespace: kube-system
+  resourceVersion: "1608633"
+  uid: 0f1654c2-63ea-4a9b-8947-f6e947666153
+kind: Event
+lastTimestamp: "2024-01-25T06:32:58Z"
+message: |
+  Liveness probe failed: initialized to false
+metadata:
+  creationTimestamp: "2024-01-25T06:32:48Z"
+  name: calico-kube-controllers-85578c44bf-cm6kg.17ad837435f1af72
+  namespace: kube-system
+  uid: c1a4076c-bfe5-4430-aaae-5d59887477ac
+reason: Unhealthy
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Warning

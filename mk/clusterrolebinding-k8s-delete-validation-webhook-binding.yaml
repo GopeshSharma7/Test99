@@ -1,0 +1,17 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"name":"k8s-delete-validation-webhook-binding"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"k8s-delete-validation-webhook"},"subjects":[{"kind":"ServiceAccount","name":"default","namespace":"default"}]}
+  creationTimestamp: "2023-11-07T08:36:13Z"
+  name: k8s-delete-validation-webhook-binding
+  uid: 54c3aa32-0c91-4dff-92f1-7b97a43775d9
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: k8s-delete-validation-webhook
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: default

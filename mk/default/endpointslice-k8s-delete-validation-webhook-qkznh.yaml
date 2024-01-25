@@ -1,0 +1,23 @@
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints: null
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2023-11-07T08:36:13Z"
+  creationTimestamp: "2023-11-07T08:36:13Z"
+  generateName: k8s-delete-validation-webhook-
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: k8s-delete-validation-webhook
+  name: k8s-delete-validation-webhook-qkznh
+  namespace: default
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: k8s-delete-validation-webhook
+    uid: a4c9d7f5-b2c9-41eb-9d2d-f5971eaa6a8e
+  uid: 686bd8f5-2746-47f6-a8d8-754f5c310b23
+ports: null

@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 6
+eventTime: null
+firstTimestamp: "2024-01-25T06:34:38Z"
+involvedObject:
+  apiVersion: v1
+  kind: Pod
+  name: k8s-delete-validation-webhook-789d9cf956-slfpz
+  namespace: default
+  resourceVersion: "864640"
+  uid: b68c7b56-0901-4708-8703-659cd8de4484
+kind: Event
+lastTimestamp: "2024-01-25T06:46:00Z"
+message: 'Unable to attach or mount volumes: unmounted volumes=[ssl-keys], unattached
+  volumes=[], failed to process volumes=[]: timed out waiting for the condition'
+metadata:
+  creationTimestamp: "2024-01-25T06:34:38Z"
+  name: k8s-delete-validation-webhook-789d9cf956-slfpz.17ad838dc67dc478
+  namespace: default
+  uid: 8d38826f-7dab-489a-8d7d-a7343ddf6c5c
+reason: FailedMount
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Warning

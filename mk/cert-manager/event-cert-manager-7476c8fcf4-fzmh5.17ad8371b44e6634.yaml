@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:38Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{cert-manager-controller}
+  kind: Pod
+  name: cert-manager-7476c8fcf4-fzmh5
+  namespace: cert-manager
+  resourceVersion: "1608659"
+  uid: 8f6e0df1-1bad-4c54-9494-7ac25a20a5b6
+kind: Event
+lastTimestamp: "2024-01-25T06:32:38Z"
+message: Created container cert-manager-controller
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: cert-manager-7476c8fcf4-fzmh5.17ad8371b44e6634
+  namespace: cert-manager
+  uid: deb2d5ec-f110-411f-9ad4-f262d1bcfdac
+reason: Created
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

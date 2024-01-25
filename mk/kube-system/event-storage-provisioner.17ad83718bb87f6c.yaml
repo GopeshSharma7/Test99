@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 2
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:37Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{storage-provisioner}
+  kind: Pod
+  name: storage-provisioner
+  namespace: kube-system
+  resourceVersion: "1608652"
+  uid: b8752c01-94b9-43ef-ba2a-e0ffc8a001a1
+kind: Event
+lastTimestamp: "2024-01-25T06:33:22Z"
+message: Started container storage-provisioner
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: storage-provisioner.17ad83718bb87f6c
+  namespace: kube-system
+  uid: c03d3508-46d4-4c17-ac02-b8d7b5020cbd
+reason: Started
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

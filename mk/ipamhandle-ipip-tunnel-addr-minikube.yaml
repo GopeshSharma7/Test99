@@ -1,0 +1,13 @@
+apiVersion: crd.projectcalico.org/v1
+kind: IPAMHandle
+metadata:
+  annotations:
+    projectcalico.org/metadata: '{"creationTimestamp":null}'
+  creationTimestamp: "2023-12-27T18:11:27Z"
+  name: ipip-tunnel-addr-minikube
+  uid: bf072af1-9c54-45f9-b353-dec966e536e0
+spec:
+  block:
+    10.244.120.64/26: 1
+  deleted: false
+  handleID: ipip-tunnel-addr-minikube

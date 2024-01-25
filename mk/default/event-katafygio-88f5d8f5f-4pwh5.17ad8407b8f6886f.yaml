@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:43:22Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{katafygio}
+  kind: Pod
+  name: katafygio-88f5d8f5f-4pwh5
+  namespace: default
+  resourceVersion: "1608657"
+  uid: 277abf8b-b990-46fc-bd66-30e0c27d8eca
+kind: Event
+lastTimestamp: "2024-01-25T06:43:22Z"
+message: Stopping container katafygio
+metadata:
+  creationTimestamp: "2024-01-25T06:43:22Z"
+  name: katafygio-88f5d8f5f-4pwh5.17ad8407b8f6886f
+  namespace: default
+  uid: 5ae9d7ad-7c86-46e9-919a-d2b45befe700
+reason: Killing
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

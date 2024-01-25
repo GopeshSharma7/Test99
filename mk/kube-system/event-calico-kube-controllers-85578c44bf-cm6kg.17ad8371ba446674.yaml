@@ -1,0 +1,28 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:38Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{calico-kube-controllers}
+  kind: Pod
+  name: calico-kube-controllers-85578c44bf-cm6kg
+  namespace: kube-system
+  resourceVersion: "1608633"
+  uid: 0f1654c2-63ea-4a9b-8947-f6e947666153
+kind: Event
+lastTimestamp: "2024-01-25T06:32:38Z"
+message: Container image "docker.io/calico/kube-controllers:v3.26.1" already present
+  on machine
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: calico-kube-controllers-85578c44bf-cm6kg.17ad8371ba446674
+  namespace: kube-system
+  uid: cb91a690-51eb-4279-ab1e-ae80f462cb45
+reason: Pulled
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

@@ -1,0 +1,28 @@
+apiVersion: v1
+count: 2
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:53Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{speaker}
+  kind: Pod
+  name: speaker-rp4dd
+  namespace: metallb-system
+  resourceVersion: "1608663"
+  uid: 76c502b4-4bfc-4838-aa8a-35cff23c33e5
+kind: Event
+lastTimestamp: "2024-01-25T06:33:03Z"
+message: 'Liveness probe failed: Get "http://192.168.49.2:7472/metrics": dial tcp
+  192.168.49.2:7472: connect: connection refused'
+metadata:
+  creationTimestamp: "2024-01-25T06:32:53Z"
+  name: speaker-rp4dd.17ad8375277d6c58
+  namespace: metallb-system
+  uid: 9425d390-88a9-4b44-a654-828a77112128
+reason: Unhealthy
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Warning

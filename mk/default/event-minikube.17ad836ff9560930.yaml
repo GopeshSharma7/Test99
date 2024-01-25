@@ -1,0 +1,23 @@
+apiVersion: v1
+count: 8
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:30Z"
+involvedObject:
+  kind: Node
+  name: minikube
+  uid: minikube
+kind: Event
+lastTimestamp: "2024-01-25T06:32:30Z"
+message: 'Node minikube status is now: NodeHasNoDiskPressure'
+metadata:
+  creationTimestamp: "2024-01-25T06:32:37Z"
+  name: minikube.17ad836ff9560930
+  namespace: default
+  uid: 6082a445-f790-41e2-a2c9-dbb7d836997b
+reason: NodeHasNoDiskPressure
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

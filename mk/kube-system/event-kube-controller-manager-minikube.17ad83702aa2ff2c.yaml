@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:31Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{kube-controller-manager}
+  kind: Pod
+  name: kube-controller-manager-minikube
+  namespace: kube-system
+  uid: b3702ceb912504d37098b922ccdcfa41
+kind: Event
+lastTimestamp: "2024-01-25T06:32:31Z"
+message: Container image "registry.k8s.io/kube-controller-manager:v1.27.4" already
+  present on machine
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: kube-controller-manager-minikube.17ad83702aa2ff2c
+  namespace: kube-system
+  uid: 76782b74-e9ea-4ffa-a5ab-e6a7e2810efb
+reason: Pulled
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

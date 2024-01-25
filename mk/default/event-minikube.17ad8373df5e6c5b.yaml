@@ -1,0 +1,23 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:47Z"
+involvedObject:
+  apiVersion: v1
+  kind: Node
+  name: minikube
+  uid: 7430868f-dbf0-4399-916e-ec5f730ad7fc
+kind: Event
+lastTimestamp: "2024-01-25T06:32:47Z"
+message: 'Node minikube event: Registered Node minikube in Controller'
+metadata:
+  creationTimestamp: "2024-01-25T06:32:47Z"
+  name: minikube.17ad8373df5e6c5b
+  namespace: default
+  uid: 553bdfb0-e709-4b35-a004-181295bb45f7
+reason: RegisteredNode
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: node-controller
+type: Normal

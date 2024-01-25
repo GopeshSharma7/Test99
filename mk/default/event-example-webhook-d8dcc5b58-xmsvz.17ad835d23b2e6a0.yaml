@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:31:09Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{server}
+  kind: Pod
+  name: example-webhook-d8dcc5b58-xmsvz
+  namespace: default
+  resourceVersion: "1412456"
+  uid: f055b218-7242-47d2-86b2-fb07c12d0007
+kind: Event
+lastTimestamp: "2024-01-25T06:31:09Z"
+message: Stopping container server
+metadata:
+  creationTimestamp: "2024-01-25T06:31:09Z"
+  name: example-webhook-d8dcc5b58-xmsvz.17ad835d23b2e6a0
+  namespace: default
+  uid: ec73fff9-4dc2-45e2-9617-55c1517e2e65
+reason: Killing
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

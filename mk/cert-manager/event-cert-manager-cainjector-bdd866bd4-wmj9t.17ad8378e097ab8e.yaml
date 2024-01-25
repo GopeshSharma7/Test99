@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:33:09Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{cert-manager-cainjector}
+  kind: Pod
+  name: cert-manager-cainjector-bdd866bd4-wmj9t
+  namespace: cert-manager
+  resourceVersion: "1608645"
+  uid: ea922760-7490-4dad-a5d9-9d8ca37e7685
+kind: Event
+lastTimestamp: "2024-01-25T06:33:09Z"
+message: Back-off restarting failed container cert-manager-cainjector in pod cert-manager-cainjector-bdd866bd4-wmj9t_cert-manager(ea922760-7490-4dad-a5d9-9d8ca37e7685)
+metadata:
+  creationTimestamp: "2024-01-25T06:33:09Z"
+  name: cert-manager-cainjector-bdd866bd4-wmj9t.17ad8378e097ab8e
+  namespace: cert-manager
+  uid: 3ec161fa-637a-48d3-8b47-bd1287f75fe2
+reason: BackOff
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Warning

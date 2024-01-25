@@ -1,0 +1,25 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:31Z"
+involvedObject:
+  apiVersion: v1
+  kind: Pod
+  name: etcd-minikube
+  namespace: kube-system
+  uid: 8af0e85a28544808d52bb7c47ad824ed
+kind: Event
+lastTimestamp: "2024-01-25T06:32:31Z"
+message: Pod sandbox changed, it will be killed and re-created.
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: etcd-minikube.17ad837013fac2d2
+  namespace: kube-system
+  uid: 535ff7b8-a8e8-46b7-92d4-575215acf98d
+reason: SandboxChanged
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

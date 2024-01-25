@@ -1,0 +1,19 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"labels":{"app":"metallb"},"name":"metallb-system:speaker"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"metallb-system:speaker"},"subjects":[{"kind":"ServiceAccount","name":"speaker","namespace":"metallb-system"}]}
+  creationTimestamp: "2024-01-02T05:31:56Z"
+  labels:
+    app: metallb
+  name: metallb-system:speaker
+  uid: c18df066-e85c-481b-80b0-f4be8a02677e
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: metallb-system:speaker
+subjects:
+- kind: ServiceAccount
+  name: speaker
+  namespace: metallb-system

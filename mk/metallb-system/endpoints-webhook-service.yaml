@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2024-01-25T06:33:28Z"
+  creationTimestamp: "2024-01-02T05:31:56Z"
+  name: webhook-service
+  namespace: metallb-system
+  uid: e81fd7a8-c020-44d4-9bef-4a7c761394e3
+subsets:
+- addresses:
+  - ip: 10.244.0.241
+    nodeName: minikube
+    targetRef:
+      kind: Pod
+      name: controller-595f88d88f-vzh8v
+      namespace: metallb-system
+      uid: ba0eb06a-abf9-4545-b945-8959f7317a30
+  ports:
+  - port: 9443
+    protocol: TCP

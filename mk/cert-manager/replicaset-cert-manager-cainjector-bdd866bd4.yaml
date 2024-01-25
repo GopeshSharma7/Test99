@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  annotations:
+    deployment.kubernetes.io/desired-replicas: "1"
+    deployment.kubernetes.io/max-replicas: "2"
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: "2024-01-02T05:31:33Z"
+  labels:
+    app: cainjector
+    app.kubernetes.io/component: cainjector
+    app.kubernetes.io/instance: cert-manager
+    app.kubernetes.io/name: cainjector
+    app.kubernetes.io/version: v1.12.0
+    pod-template-hash: bdd866bd4
+  name: cert-manager-cainjector-bdd866bd4
+  namespace: cert-manager
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Deployment
+    name: cert-manager-cainjector
+    uid: 504c447a-d037-4199-a791-fe503621802b
+  uid: c8c7b486-56fd-4ceb-b144-44cd2f0c06fc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: cainjector
+      app.kubernetes.io/instance: cert-manager
+      app.kubernetes.io/name: cainjector
+      pod-template-hash: bdd866bd4
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: cainjector
+        app.kubernetes.io/component: cainjector
+        app.kubernetes.io/instance: cert-manager
+        app.kubernetes.io/name: cainjector
+        app.kubernetes.io/version: v1.12.0
+        pod-template-hash: bdd866bd4
+    spec:
+      containers:
+      - args:
+        - --v=2
+        - --leader-election-namespace=kube-system
+        env:
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        image: quay.io/jetstack/cert-manager-cainjector:v1.12.0
+        imagePullPolicy: IfNotPresent
+        name: cert-manager-cainjector
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        kubernetes.io/os: linux
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      serviceAccount: cert-manager-cainjector
+      serviceAccountName: cert-manager-cainjector
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  fullyLabeledReplicas: 1
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1

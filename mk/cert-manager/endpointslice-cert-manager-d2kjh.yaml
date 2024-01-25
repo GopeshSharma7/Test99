@@ -1,0 +1,43 @@
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 10.244.0.237
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: minikube
+  targetRef:
+    kind: Pod
+    name: cert-manager-7476c8fcf4-fzmh5
+    namespace: cert-manager
+    uid: 8f6e0df1-1bad-4c54-9494-7ac25a20a5b6
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2024-01-02T05:31:33Z"
+  creationTimestamp: "2024-01-02T05:31:33Z"
+  generateName: cert-manager-
+  labels:
+    app: cert-manager
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: cert-manager
+    app.kubernetes.io/name: cert-manager
+    app.kubernetes.io/version: v1.12.0
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: cert-manager
+  name: cert-manager-d2kjh
+  namespace: cert-manager
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: cert-manager
+    uid: c3dcc847-b5ec-4d31-af9d-7d4df9750edf
+  uid: 6c409a08-7526-4a88-b7e3-215ec4492a61
+ports:
+- name: tcp-prometheus-servicemonitor
+  port: 9402
+  protocol: TCP

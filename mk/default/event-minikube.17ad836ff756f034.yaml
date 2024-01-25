@@ -1,0 +1,23 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:30Z"
+involvedObject:
+  kind: Node
+  name: minikube
+  uid: minikube
+kind: Event
+lastTimestamp: "2024-01-25T06:32:30Z"
+message: Starting kubelet.
+metadata:
+  creationTimestamp: "2024-01-25T06:32:37Z"
+  name: minikube.17ad836ff756f034
+  namespace: default
+  uid: 9fe38af2-f9ee-4b75-971a-6ac6ba8b9f44
+reason: Starting
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

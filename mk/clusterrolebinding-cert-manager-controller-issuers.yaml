@@ -1,0 +1,23 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"labels":{"app":"cert-manager","app.kubernetes.io/component":"controller","app.kubernetes.io/instance":"cert-manager","app.kubernetes.io/name":"cert-manager","app.kubernetes.io/version":"v1.12.0"},"name":"cert-manager-controller-issuers"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-issuers"},"subjects":[{"kind":"ServiceAccount","name":"cert-manager","namespace":"cert-manager"}]}
+  creationTimestamp: "2024-01-02T05:31:33Z"
+  labels:
+    app: cert-manager
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: cert-manager
+    app.kubernetes.io/name: cert-manager
+    app.kubernetes.io/version: v1.12.0
+  name: cert-manager-controller-issuers
+  uid: d24efc5d-6a29-4bd8-8d42-5fc1082d9927
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cert-manager-controller-issuers
+subjects:
+- kind: ServiceAccount
+  name: cert-manager
+  namespace: cert-manager

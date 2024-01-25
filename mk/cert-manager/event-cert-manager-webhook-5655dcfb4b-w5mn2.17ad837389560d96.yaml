@@ -1,0 +1,28 @@
+apiVersion: v1
+count: 5
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:46Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{cert-manager-webhook}
+  kind: Pod
+  name: cert-manager-webhook-5655dcfb4b-w5mn2
+  namespace: cert-manager
+  resourceVersion: "1608665"
+  uid: ddcad1b0-18e1-484a-bedb-cf9abdfc5b90
+kind: Event
+lastTimestamp: "2024-01-25T06:33:06Z"
+message: 'Readiness probe failed: Get "http://10.244.0.236:6080/healthz": dial tcp
+  10.244.0.236:6080: connect: connection refused'
+metadata:
+  creationTimestamp: "2024-01-25T06:32:46Z"
+  name: cert-manager-webhook-5655dcfb4b-w5mn2.17ad837389560d96
+  namespace: cert-manager
+  uid: 124429ba-c56f-4359-9dc5-d9b87d8837ad
+reason: Unhealthy
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Warning

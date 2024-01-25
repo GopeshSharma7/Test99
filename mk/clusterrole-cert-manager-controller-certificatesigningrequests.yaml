@@ -1,0 +1,47 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRole","metadata":{"annotations":{},"labels":{"app":"cert-manager","app.kubernetes.io/component":"cert-manager","app.kubernetes.io/instance":"cert-manager","app.kubernetes.io/name":"cert-manager","app.kubernetes.io/version":"v1.12.0"},"name":"cert-manager-controller-certificatesigningrequests"},"rules":[{"apiGroups":["certificates.k8s.io"],"resources":["certificatesigningrequests"],"verbs":["get","list","watch","update"]},{"apiGroups":["certificates.k8s.io"],"resources":["certificatesigningrequests/status"],"verbs":["update","patch"]},{"apiGroups":["certificates.k8s.io"],"resourceNames":["issuers.cert-manager.io/*","clusterissuers.cert-manager.io/*"],"resources":["signers"],"verbs":["sign"]},{"apiGroups":["authorization.k8s.io"],"resources":["subjectaccessreviews"],"verbs":["create"]}]}
+  creationTimestamp: "2024-01-02T05:31:33Z"
+  labels:
+    app: cert-manager
+    app.kubernetes.io/component: cert-manager
+    app.kubernetes.io/instance: cert-manager
+    app.kubernetes.io/name: cert-manager
+    app.kubernetes.io/version: v1.12.0
+  name: cert-manager-controller-certificatesigningrequests
+  uid: e1158a71-080c-4e40-a4ca-7749d8b18baf
+rules:
+- apiGroups:
+  - certificates.k8s.io
+  resources:
+  - certificatesigningrequests
+  verbs:
+  - get
+  - list
+  - watch
+  - update
+- apiGroups:
+  - certificates.k8s.io
+  resources:
+  - certificatesigningrequests/status
+  verbs:
+  - update
+  - patch
+- apiGroups:
+  - certificates.k8s.io
+  resourceNames:
+  - issuers.cert-manager.io/*
+  - clusterissuers.cert-manager.io/*
+  resources:
+  - signers
+  verbs:
+  - sign
+- apiGroups:
+  - authorization.k8s.io
+  resources:
+  - subjectaccessreviews
+  verbs:
+  - create

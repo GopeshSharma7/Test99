@@ -1,0 +1,26 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:36Z"
+involvedObject:
+  apiVersion: v1
+  kind: Pod
+  name: go-app-697df4b455-j7lrl
+  namespace: default
+  resourceVersion: "1608654"
+  uid: c66b1aaa-d693-4cc3-b940-8a7a7a58da31
+kind: Event
+lastTimestamp: "2024-01-25T06:32:36Z"
+message: Pod sandbox changed, it will be killed and re-created.
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: go-app-697df4b455-j7lrl.17ad837134046bd0
+  namespace: default
+  uid: b344d60b-51b4-472d-9db5-8c16dcf1081b
+reason: SandboxChanged
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

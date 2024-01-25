@@ -1,0 +1,66 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  creationTimestamp: "2023-09-01T13:06:13Z"
+  labels:
+    kubernetes.io/bootstrapping: rbac-defaults
+  name: system:controller:deployment-controller
+  uid: 5a9ef7f2-997f-4696-b772-c986a23557e0
+rules:
+- apiGroups:
+  - apps
+  - extensions
+  resources:
+  - deployments
+  verbs:
+  - get
+  - list
+  - update
+  - watch
+- apiGroups:
+  - apps
+  - extensions
+  resources:
+  - deployments/status
+  verbs:
+  - update
+- apiGroups:
+  - apps
+  - extensions
+  resources:
+  - deployments/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - apps
+  - extensions
+  resources:
+  - replicasets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - get
+  - list
+  - update
+  - watch
+- apiGroups:
+  - ""
+  - events.k8s.io
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
+  - update

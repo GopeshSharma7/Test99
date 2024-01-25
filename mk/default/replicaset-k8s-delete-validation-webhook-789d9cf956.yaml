@@ -1,0 +1,89 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  annotations:
+    deployment.kubernetes.io/desired-replicas: "1"
+    deployment.kubernetes.io/max-replicas: "2"
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: "2023-11-07T08:36:13Z"
+  labels:
+    app: k8s-delete-validation-webhook
+    pod-template-hash: 789d9cf956
+  name: k8s-delete-validation-webhook-789d9cf956
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Deployment
+    name: k8s-delete-validation-webhook
+    uid: 732382ad-dda7-43d4-823b-3fbc52207a0c
+  uid: 704e86e4-e4a6-4d8a-a4e2-448aad8232a5
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-delete-validation-webhook
+      pod-template-hash: 789d9cf956
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: k8s-delete-validation-webhook
+        pod-template-hash: 789d9cf956
+    spec:
+      containers:
+      - env:
+        - name: TLS_CERT_FILE
+          value: /data/ssl_certs/server-cert.pem
+        - name: TLS_PRIVATE_KEY_FILE
+          value: /data/ssl_keys/server-key.pem
+        - name: LISTEN_PORT
+          value: "443"
+        - name: DEPLOYMENT_DELETION_FAILED_MESSAGE
+          value: The deployment cannot be deleted as deletions are locked for this
+            deployment
+        - name: DEPLOYMENT_DELETION_LOCK_LABEL_KEY
+          value: deleteLock
+        - name: DEPLOYMENT_DELETION_LOCK_LABEL_VALUE
+          value: enabled
+        image: ${WEBHOOK_IMAGE}
+        imagePullPolicy: IfNotPresent
+        name: k8s-delete-validation-webhook
+        ports:
+        - containerPort: 443
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /data/ssl_certs
+          name: ssl-certs
+          readOnly: true
+        - mountPath: /data/ssl_keys
+          name: ssl-keys
+          readOnly: true
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          defaultMode: 420
+          items:
+          - key: tls_cert
+            path: server-cert.pem
+          name: k8s-delete-validation-webhook-config
+        name: ssl-certs
+      - name: ssl-keys
+        secret:
+          defaultMode: 420
+          items:
+          - key: tls_private_key
+            path: server-key.pem
+          secretName: k8s-delete-validation-webhook-secret
+status:
+  fullyLabeledReplicas: 1
+  observedGeneration: 1
+  replicas: 1

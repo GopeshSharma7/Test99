@@ -1,0 +1,115 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  annotations:
+    deployment.kubernetes.io/desired-replicas: "1"
+    deployment.kubernetes.io/max-replicas: "2"
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: "2024-01-02T05:31:34Z"
+  labels:
+    app: webhook
+    app.kubernetes.io/component: webhook
+    app.kubernetes.io/instance: cert-manager
+    app.kubernetes.io/name: webhook
+    app.kubernetes.io/version: v1.12.0
+    pod-template-hash: 5655dcfb4b
+  name: cert-manager-webhook-5655dcfb4b
+  namespace: cert-manager
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Deployment
+    name: cert-manager-webhook
+    uid: 2798ce81-b8c6-459b-96ae-dbc9483062e2
+  uid: e712863d-9b6f-475b-b98a-971923574c74
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: webhook
+      app.kubernetes.io/instance: cert-manager
+      app.kubernetes.io/name: webhook
+      pod-template-hash: 5655dcfb4b
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: webhook
+        app.kubernetes.io/component: webhook
+        app.kubernetes.io/instance: cert-manager
+        app.kubernetes.io/name: webhook
+        app.kubernetes.io/version: v1.12.0
+        pod-template-hash: 5655dcfb4b
+    spec:
+      containers:
+      - args:
+        - --v=2
+        - --secure-port=10250
+        - --dynamic-serving-ca-secret-namespace=$(POD_NAMESPACE)
+        - --dynamic-serving-ca-secret-name=cert-manager-webhook-ca
+        - --dynamic-serving-dns-names=cert-manager-webhook
+        - --dynamic-serving-dns-names=cert-manager-webhook.$(POD_NAMESPACE)
+        - --dynamic-serving-dns-names=cert-manager-webhook.$(POD_NAMESPACE).svc
+        env:
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        image: quay.io/jetstack/cert-manager-webhook:v1.12.0
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /livez
+            port: 6080
+            scheme: HTTP
+          initialDelaySeconds: 60
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: cert-manager-webhook
+        ports:
+        - containerPort: 10250
+          name: https
+          protocol: TCP
+        - containerPort: 6080
+          name: healthcheck
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz
+            port: 6080
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        kubernetes.io/os: linux
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      serviceAccount: cert-manager-webhook
+      serviceAccountName: cert-manager-webhook
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  fullyLabeledReplicas: 1
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1

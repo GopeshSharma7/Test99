@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:40Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.initContainers{install-cni}
+  kind: Pod
+  name: calico-node-tdncx
+  namespace: kube-system
+  resourceVersion: "1608636"
+  uid: 5f40c6a5-9fb4-4214-ace2-2e8e84832da4
+kind: Event
+lastTimestamp: "2024-01-25T06:32:40Z"
+message: Created container install-cni
+metadata:
+  creationTimestamp: "2024-01-25T06:32:40Z"
+  name: calico-node-tdncx.17ad837226812533
+  namespace: kube-system
+  uid: f2f44bd3-dd9c-4a55-9ab7-c18e31a33e73
+reason: Created
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

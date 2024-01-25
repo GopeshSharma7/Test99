@@ -1,0 +1,115 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  annotations:
+    deployment.kubernetes.io/desired-replicas: "1"
+    deployment.kubernetes.io/max-replicas: "2"
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: "2024-01-02T05:31:56Z"
+  labels:
+    app: metallb
+    component: controller
+    pod-template-hash: 595f88d88f
+  name: controller-595f88d88f
+  namespace: metallb-system
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Deployment
+    name: controller
+    uid: 5ce4e214-26b0-42d3-8be0-b128248b3b34
+  uid: 3462441a-a6ee-41ce-9be4-57ffb438b0be
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: metallb
+      component: controller
+      pod-template-hash: 595f88d88f
+  template:
+    metadata:
+      annotations:
+        prometheus.io/port: "7472"
+        prometheus.io/scrape: "true"
+      creationTimestamp: null
+      labels:
+        app: metallb
+        component: controller
+        pod-template-hash: 595f88d88f
+    spec:
+      containers:
+      - args:
+        - --port=7472
+        - --log-level=info
+        env:
+        - name: METALLB_ML_SECRET_NAME
+          value: memberlist
+        - name: METALLB_DEPLOYMENT
+          value: controller
+        image: quay.io/metallb/controller:v0.13.10
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /metrics
+            port: monitoring
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: controller
+        ports:
+        - containerPort: 7472
+          name: monitoring
+          protocol: TCP
+        - containerPort: 9443
+          name: webhook-server
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /metrics
+            port: monitoring
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - all
+          readOnlyRootFilesystem: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /tmp/k8s-webhook-server/serving-certs
+          name: cert
+          readOnly: true
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        kubernetes.io/os: linux
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        fsGroup: 65534
+        runAsNonRoot: true
+        runAsUser: 65534
+      serviceAccount: controller
+      serviceAccountName: controller
+      terminationGracePeriodSeconds: 0
+      volumes:
+      - name: cert
+        secret:
+          defaultMode: 420
+          secretName: webhook-server-cert
+status:
+  availableReplicas: 1
+  fullyLabeledReplicas: 1
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1

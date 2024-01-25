@@ -1,0 +1,28 @@
+apiVersion: v1
+count: 2
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:36Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{storage-provisioner}
+  kind: Pod
+  name: storage-provisioner
+  namespace: kube-system
+  resourceVersion: "1608652"
+  uid: b8752c01-94b9-43ef-ba2a-e0ffc8a001a1
+kind: Event
+lastTimestamp: "2024-01-25T06:33:22Z"
+message: Container image "gcr.io/k8s-minikube/storage-provisioner:v5" already present
+  on machine
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: storage-provisioner.17ad83714ac53b81
+  namespace: kube-system
+  uid: a9eb0e0a-6751-4015-87cf-532fca4c0df3
+reason: Pulled
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

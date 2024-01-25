@@ -1,0 +1,43 @@
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 10.244.0.236
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: minikube
+  targetRef:
+    kind: Pod
+    name: cert-manager-webhook-5655dcfb4b-w5mn2
+    namespace: cert-manager
+    uid: ddcad1b0-18e1-484a-bedb-cf9abdfc5b90
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2024-01-25T06:33:31Z"
+  creationTimestamp: "2024-01-02T05:31:33Z"
+  generateName: cert-manager-webhook-
+  labels:
+    app: webhook
+    app.kubernetes.io/component: webhook
+    app.kubernetes.io/instance: cert-manager
+    app.kubernetes.io/name: webhook
+    app.kubernetes.io/version: v1.12.0
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: cert-manager-webhook
+  name: cert-manager-webhook-flznk
+  namespace: cert-manager
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: cert-manager-webhook
+    uid: e0e3badf-40f5-4216-b0f3-307eab6e444a
+  uid: 95202d56-d356-46d1-922e-74634619c43c
+ports:
+- name: https
+  port: 10250
+  protocol: TCP

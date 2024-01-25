@@ -1,0 +1,28 @@
+apiVersion: v1
+count: 2
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:38Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{cert-manager-cainjector}
+  kind: Pod
+  name: cert-manager-cainjector-bdd866bd4-wmj9t
+  namespace: cert-manager
+  resourceVersion: "1608645"
+  uid: ea922760-7490-4dad-a5d9-9d8ca37e7685
+kind: Event
+lastTimestamp: "2024-01-25T06:33:20Z"
+message: Container image "quay.io/jetstack/cert-manager-cainjector:v1.12.0" already
+  present on machine
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: cert-manager-cainjector-bdd866bd4-wmj9t.17ad8371ae1da9a8
+  namespace: cert-manager
+  uid: c3898e75-e8fe-4eba-a12c-393c368073d8
+reason: Pulled
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

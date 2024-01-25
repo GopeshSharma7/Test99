@@ -1,0 +1,25 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:31Z"
+involvedObject:
+  apiVersion: v1
+  kind: Pod
+  name: kube-controller-manager-minikube
+  namespace: kube-system
+  uid: b3702ceb912504d37098b922ccdcfa41
+kind: Event
+lastTimestamp: "2024-01-25T06:32:31Z"
+message: Pod sandbox changed, it will be killed and re-created.
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: kube-controller-manager-minikube.17ad837015229985
+  namespace: kube-system
+  uid: 2d6702a8-8192-4036-a4cd-dc154f33c2a2
+reason: SandboxChanged
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

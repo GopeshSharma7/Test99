@@ -1,0 +1,19 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  creationTimestamp: "2023-09-01T13:06:12Z"
+  labels:
+    kubernetes.io/bootstrapping: rbac-defaults
+  name: system:public-info-viewer
+  uid: e26fd77b-493c-45e1-9aa1-6d36815294a7
+rules:
+- nonResourceURLs:
+  - /healthz
+  - /livez
+  - /readyz
+  - /version
+  - /version/
+  verbs:
+  - get

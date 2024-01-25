@@ -1,0 +1,13 @@
+apiVersion: v1
+data:
+  excludel2.yaml: |
+    announcedInterfacesToExclude: ["docker.*", "cbr.*", "dummy.*", "virbr.*", "lxcbr.*", "veth.*", "lo", "^cali.*", "^tunl.*", "flannel.*", "kube-ipvs.*", "cni.*", "^nodelocaldns.*"]
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"excludel2.yaml":"announcedInterfacesToExclude: [\"docker.*\", \"cbr.*\", \"dummy.*\", \"virbr.*\", \"lxcbr.*\", \"veth.*\", \"lo\", \"^cali.*\", \"^tunl.*\", \"flannel.*\", \"kube-ipvs.*\", \"cni.*\", \"^nodelocaldns.*\"]\n"},"kind":"ConfigMap","metadata":{"annotations":{},"name":"metallb-excludel2","namespace":"metallb-system"}}
+  creationTimestamp: "2024-01-02T05:31:56Z"
+  name: metallb-excludel2
+  namespace: metallb-system
+  uid: 77a3a492-6697-4f00-bc89-060842c485df

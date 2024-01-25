@@ -1,0 +1,16 @@
+apiVersion: coordination.k8s.io/v1
+kind: Lease
+metadata:
+  creationTimestamp: "2024-01-02T05:32:12Z"
+  labels:
+    author: system_serviceaccount_cert-manager_cert-manager
+    operation: UPDATE
+  name: cert-manager-controller
+  namespace: kube-system
+  uid: a0122e1b-2f0c-46bc-a732-0a157008771f
+spec:
+  acquireTime: "2024-01-19T10:16:12.527186Z"
+  holderIdentity: cert-manager-7476c8fcf4-fzmh5-external-cert-manager-controller
+  leaseDurationSeconds: 60
+  leaseTransitions: 1
+  renewTime: "2024-01-25T06:46:10.352384Z"

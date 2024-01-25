@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:43Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{calico-node}
+  kind: Pod
+  name: calico-node-tdncx
+  namespace: kube-system
+  resourceVersion: "1608636"
+  uid: 5f40c6a5-9fb4-4214-ace2-2e8e84832da4
+kind: Event
+lastTimestamp: "2024-01-25T06:32:43Z"
+message: Started container calico-node
+metadata:
+  creationTimestamp: "2024-01-25T06:32:43Z"
+  name: calico-node-tdncx.17ad8372ec5b7460
+  namespace: kube-system
+  uid: 170f84fb-5e89-4b98-ac5b-c94fde05e935
+reason: Started
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

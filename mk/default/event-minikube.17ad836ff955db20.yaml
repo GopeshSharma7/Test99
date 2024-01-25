@@ -1,0 +1,23 @@
+apiVersion: v1
+count: 8
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:30Z"
+involvedObject:
+  kind: Node
+  name: minikube
+  uid: minikube
+kind: Event
+lastTimestamp: "2024-01-25T06:32:30Z"
+message: 'Node minikube status is now: NodeHasSufficientMemory'
+metadata:
+  creationTimestamp: "2024-01-25T06:32:37Z"
+  name: minikube.17ad836ff955db20
+  namespace: default
+  uid: 73145c5d-c617-4c37-9f97-70b4ec35a4a1
+reason: NodeHasSufficientMemory
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

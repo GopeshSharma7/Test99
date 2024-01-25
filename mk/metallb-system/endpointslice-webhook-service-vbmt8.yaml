@@ -1,0 +1,38 @@
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1
+endpoints:
+- addresses:
+  - 10.244.0.241
+  conditions:
+    ready: true
+    serving: true
+    terminating: false
+  nodeName: minikube
+  targetRef:
+    kind: Pod
+    name: controller-595f88d88f-vzh8v
+    namespace: metallb-system
+    uid: ba0eb06a-abf9-4545-b945-8959f7317a30
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2024-01-25T06:33:28Z"
+  creationTimestamp: "2024-01-02T05:31:56Z"
+  generateName: webhook-service-
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: webhook-service
+  name: webhook-service-vbmt8
+  namespace: metallb-system
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: webhook-service
+    uid: ba043f17-9990-4b1e-956f-90b6cccdcc9d
+  uid: 96bac8b2-f664-4a3f-81c3-8311ab28515b
+ports:
+- name: ""
+  port: 9443
+  protocol: TCP

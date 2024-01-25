@@ -1,0 +1,20 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"RoleBinding","metadata":{"annotations":{},"labels":{"app":"metallb"},"name":"pod-lister","namespace":"metallb-system"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"Role","name":"pod-lister"},"subjects":[{"kind":"ServiceAccount","name":"speaker","namespace":"metallb-system"}]}
+  creationTimestamp: "2024-01-02T05:31:56Z"
+  labels:
+    app: metallb
+  name: pod-lister
+  namespace: metallb-system
+  uid: bb0f82e1-00e8-41cb-b495-45cb5938e0b5
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: pod-lister
+subjects:
+- kind: ServiceAccount
+  name: speaker
+  namespace: metallb-system

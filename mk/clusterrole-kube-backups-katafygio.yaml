@@ -1,0 +1,24 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    meta.helm.sh/release-name: kube-backups
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: "2023-10-26T04:58:03Z"
+  labels:
+    app: katafygio
+    app.kubernetes.io/managed-by: Helm
+    chart: katafygio-0.5.1
+    heritage: Helm
+    release: kube-backups
+  name: kube-backups-katafygio
+  uid: f7839364-a884-4b50-a0fa-f7831aaea6b7
+rules:
+- apiGroups:
+  - '*'
+  resources:
+  - '*'
+  verbs:
+  - get
+  - list
+  - watch

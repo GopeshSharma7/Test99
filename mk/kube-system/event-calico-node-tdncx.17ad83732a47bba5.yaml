@@ -1,0 +1,29 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:44Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{calico-node}
+  kind: Pod
+  name: calico-node-tdncx
+  namespace: kube-system
+  resourceVersion: "1608636"
+  uid: 5f40c6a5-9fb4-4214-ace2-2e8e84832da4
+kind: Event
+lastTimestamp: "2024-01-25T06:32:44Z"
+message: |
+  Readiness probe failed: calico/node is not ready: BIRD is not ready: Error querying BIRD: unable to connect to BIRDv4 socket: dial unix /var/run/bird/bird.ctl: connect: no such file or directory
+  W0125 06:32:44.491546      49 feature_gate.go:241] Setting GA feature gate ServiceInternalTrafficPolicy=true. It will be removed in a future release.
+metadata:
+  creationTimestamp: "2024-01-25T06:32:44Z"
+  name: calico-node-tdncx.17ad83732a47bba5
+  namespace: kube-system
+  uid: 4c78006f-c6fe-412c-a31a-1fb2db0d97e6
+reason: Unhealthy
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Warning

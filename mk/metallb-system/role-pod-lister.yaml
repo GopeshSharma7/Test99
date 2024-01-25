@@ -1,0 +1,91 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"Role","metadata":{"annotations":{},"labels":{"app":"metallb"},"name":"pod-lister","namespace":"metallb-system"},"rules":[{"apiGroups":[""],"resources":["pods"],"verbs":["list"]},{"apiGroups":[""],"resources":["secrets"],"verbs":["get","list","watch"]},{"apiGroups":[""],"resources":["configmaps"],"verbs":["get","list","watch"]},{"apiGroups":["metallb.io"],"resources":["addresspools"],"verbs":["get","list","watch"]},{"apiGroups":["metallb.io"],"resources":["bfdprofiles"],"verbs":["get","list","watch"]},{"apiGroups":["metallb.io"],"resources":["bgppeers"],"verbs":["get","list","watch"]},{"apiGroups":["metallb.io"],"resources":["l2advertisements"],"verbs":["get","list","watch"]},{"apiGroups":["metallb.io"],"resources":["bgpadvertisements"],"verbs":["get","list","watch"]},{"apiGroups":["metallb.io"],"resources":["ipaddresspools"],"verbs":["get","list","watch"]},{"apiGroups":["metallb.io"],"resources":["communities"],"verbs":["get","list","watch"]}]}
+  creationTimestamp: "2024-01-02T05:31:56Z"
+  labels:
+    app: metallb
+  name: pod-lister
+  namespace: metallb-system
+  uid: 6be6b0d3-c170-4844-8dfc-a044f00ec7f5
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - list
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - metallb.io
+  resources:
+  - addresspools
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - metallb.io
+  resources:
+  - bfdprofiles
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - metallb.io
+  resources:
+  - bgppeers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - metallb.io
+  resources:
+  - l2advertisements
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - metallb.io
+  resources:
+  - bgpadvertisements
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - metallb.io
+  resources:
+  - ipaddresspools
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - metallb.io
+  resources:
+  - communities
+  verbs:
+  - get
+  - list
+  - watch

@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:31Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{kube-apiserver}
+  kind: Pod
+  name: kube-apiserver-minikube
+  namespace: kube-system
+  uid: f241819aff4d77a34fc71bea1fac9af8
+kind: Event
+lastTimestamp: "2024-01-25T06:32:31Z"
+message: Container image "registry.k8s.io/kube-apiserver:v1.27.4" already present
+  on machine
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: kube-apiserver-minikube.17ad83702c0aaadb
+  namespace: kube-system
+  uid: 9b0b57f7-0dae-4283-97d1-82b938f9b895
+reason: Pulled
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

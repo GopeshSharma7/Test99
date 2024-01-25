@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"PersistentVolumeClaim","metadata":{"annotations":{},"labels":{"app":"katafygio","chart":"katafygio-0.5.1","heritage":"Helm","release":"katafygio"},"name":"katafygio","namespace":"default"},"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"1Gi"}}}}
+    pv.kubernetes.io/bind-completed: "yes"
+    pv.kubernetes.io/bound-by-controller: "yes"
+    volume.beta.kubernetes.io/storage-provisioner: k8s.io/minikube-hostpath
+    volume.kubernetes.io/storage-provisioner: k8s.io/minikube-hostpath
+  creationTimestamp: "2024-01-08T11:19:32Z"
+  finalizers:
+  - kubernetes.io/pvc-protection
+  labels:
+    app: katafygio
+    chart: katafygio-0.5.1
+    heritage: Helm
+    release: katafygio
+  name: katafygio
+  namespace: default
+  uid: 81c34082-6287-434d-8968-35bec4221783
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: standard
+  volumeMode: Filesystem
+  volumeName: pvc-81c34082-6287-434d-8968-35bec4221783
+status:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  phase: Bound

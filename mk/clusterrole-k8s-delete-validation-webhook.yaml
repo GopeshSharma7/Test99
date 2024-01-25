@@ -1,0 +1,17 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRole","metadata":{"annotations":{},"name":"k8s-delete-validation-webhook"},"rules":[{"apiGroups":["*"],"resources":["deployments"],"verbs":["get","list"]}]}
+  creationTimestamp: "2023-11-07T08:36:13Z"
+  name: k8s-delete-validation-webhook
+  uid: b3d725a0-62b0-4146-b351-3ee834bbbe94
+rules:
+- apiGroups:
+  - '*'
+  resources:
+  - deployments
+  verbs:
+  - get
+  - list

@@ -1,0 +1,25 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:43:23Z"
+involvedObject:
+  apiVersion: v1
+  kind: Pod
+  name: katafygio-8c75bff96-5xlb9
+  namespace: default
+  resourceVersion: "1609618"
+  uid: a3619048-e19e-48d9-92c3-710271e166fe
+kind: Event
+lastTimestamp: "2024-01-25T06:43:23Z"
+message: Successfully assigned default/katafygio-8c75bff96-5xlb9 to minikube
+metadata:
+  creationTimestamp: "2024-01-25T06:43:23Z"
+  name: katafygio-8c75bff96-5xlb9.17ad8407ea445de4
+  namespace: default
+  uid: a240f363-3132-4a8b-8cb2-d13b22d38abe
+reason: Scheduled
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: default-scheduler
+type: Normal

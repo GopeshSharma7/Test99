@@ -1,0 +1,16 @@
+apiVersion: coordination.k8s.io/v1
+kind: Lease
+metadata:
+  creationTimestamp: "2024-01-02T05:32:00Z"
+  labels:
+    author: system_serviceaccount_cert-manager_cert-manager-cainjector
+    operation: UPDATE
+  name: cert-manager-cainjector-leader-election
+  namespace: kube-system
+  uid: 64287378-4d11-4582-88a1-c6785c459525
+spec:
+  acquireTime: "2024-01-25T06:34:36.520719Z"
+  holderIdentity: cert-manager-cainjector-bdd866bd4-wmj9t_cddda121-3461-4877-b7f9-97b89995d1a8
+  leaseDurationSeconds: 60
+  leaseTransitions: 13
+  renewTime: "2024-01-25T06:46:07.043642Z"

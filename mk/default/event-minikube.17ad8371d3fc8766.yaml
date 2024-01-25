@@ -1,0 +1,20 @@
+action: StartKubeProxy
+apiVersion: v1
+eventTime: "2024-01-25T06:32:38.754370Z"
+firstTimestamp: null
+involvedObject:
+  kind: Node
+  name: minikube
+  uid: minikube
+kind: Event
+lastTimestamp: null
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: minikube.17ad8371d3fc8766
+  namespace: default
+  uid: b7b6fa1a-fbf2-4ceb-9151-269d97284780
+reason: Starting
+reportingComponent: kube-proxy
+reportingInstance: kube-proxy-minikube
+source: {}
+type: Normal

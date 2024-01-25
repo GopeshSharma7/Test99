@@ -1,0 +1,26 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:36Z"
+involvedObject:
+  apiVersion: v1
+  kind: Pod
+  name: storage-provisioner
+  namespace: kube-system
+  resourceVersion: "1608652"
+  uid: b8752c01-94b9-43ef-ba2a-e0ffc8a001a1
+kind: Event
+lastTimestamp: "2024-01-25T06:32:36Z"
+message: Pod sandbox changed, it will be killed and re-created.
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: storage-provisioner.17ad837133c474a6
+  namespace: kube-system
+  uid: 4b0fb03a-4c31-440f-872c-901de13b7a65
+reason: SandboxChanged
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

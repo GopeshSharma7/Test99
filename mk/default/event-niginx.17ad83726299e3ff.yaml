@@ -1,0 +1,28 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:41Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{niginx}
+  kind: Pod
+  name: niginx
+  namespace: default
+  resourceVersion: "1608643"
+  uid: dc7bc6c4-ab93-41e3-8e16-6c57c985f904
+kind: Event
+lastTimestamp: "2024-01-25T06:32:41Z"
+message: Successfully pulled image "nginx" in 2.78219721s (2.782326043s including
+  waiting)
+metadata:
+  creationTimestamp: "2024-01-25T06:32:41Z"
+  name: niginx.17ad83726299e3ff
+  namespace: default
+  uid: 0ca611b4-8f5b-4872-8df0-d83b4371b831
+reason: Pulled
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:38Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{go-app}
+  kind: Pod
+  name: go-app-697df4b455-j7lrl
+  namespace: default
+  resourceVersion: "1608654"
+  uid: c66b1aaa-d693-4cc3-b940-8a7a7a58da31
+kind: Event
+lastTimestamp: "2024-01-25T06:32:38Z"
+message: Container image "sharmag07/url-short:a2" already present on machine
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: go-app-697df4b455-j7lrl.17ad8371b4b44112
+  namespace: default
+  uid: 676bd1e1-3ac0-46aa-b4a6-109b7041b66b
+reason: Pulled
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

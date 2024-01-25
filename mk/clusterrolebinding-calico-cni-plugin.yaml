@@ -1,0 +1,17 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"name":"calico-cni-plugin"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"calico-cni-plugin"},"subjects":[{"kind":"ServiceAccount","name":"calico-cni-plugin","namespace":"kube-system"}]}
+  creationTimestamp: "2023-12-27T18:10:35Z"
+  name: calico-cni-plugin
+  uid: 90b05cee-2c56-48f8-8cb5-521ef730f84b
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: calico-cni-plugin
+subjects:
+- kind: ServiceAccount
+  name: calico-cni-plugin
+  namespace: kube-system

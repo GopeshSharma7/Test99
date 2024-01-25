@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:37Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{kube-proxy}
+  kind: Pod
+  name: kube-proxy-ffgxk
+  namespace: kube-system
+  resourceVersion: "1608647"
+  uid: 70b17335-bdf5-41fd-aa8f-9ac210c05a1c
+kind: Event
+lastTimestamp: "2024-01-25T06:32:37Z"
+message: Created container kube-proxy
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: kube-proxy-ffgxk.17ad837191f9f02c
+  namespace: kube-system
+  uid: d9de1652-6515-462d-a324-882d968a5ecf
+reason: Created
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

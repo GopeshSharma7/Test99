@@ -1,0 +1,50 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRole","metadata":{"annotations":{},"labels":{"app":"cert-manager","app.kubernetes.io/component":"controller","app.kubernetes.io/instance":"cert-manager","app.kubernetes.io/name":"cert-manager","app.kubernetes.io/version":"v1.12.0"},"name":"cert-manager-controller-clusterissuers"},"rules":[{"apiGroups":["cert-manager.io"],"resources":["clusterissuers","clusterissuers/status"],"verbs":["update","patch"]},{"apiGroups":["cert-manager.io"],"resources":["clusterissuers"],"verbs":["get","list","watch"]},{"apiGroups":[""],"resources":["secrets"],"verbs":["get","list","watch","create","update","delete"]},{"apiGroups":[""],"resources":["events"],"verbs":["create","patch"]}]}
+  creationTimestamp: "2024-01-02T05:31:33Z"
+  labels:
+    app: cert-manager
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: cert-manager
+    app.kubernetes.io/name: cert-manager
+    app.kubernetes.io/version: v1.12.0
+  name: cert-manager-controller-clusterissuers
+  uid: e43673b7-3b80-481c-afeb-8a39c2e11b70
+rules:
+- apiGroups:
+  - cert-manager.io
+  resources:
+  - clusterissuers
+  - clusterissuers/status
+  verbs:
+  - update
+  - patch
+- apiGroups:
+  - cert-manager.io
+  resources:
+  - clusterissuers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - delete
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - patch

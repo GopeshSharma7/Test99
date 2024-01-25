@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2024-01-25T06:33:31Z"
+  creationTimestamp: "2024-01-02T05:31:33Z"
+  labels:
+    app: webhook
+    app.kubernetes.io/component: webhook
+    app.kubernetes.io/instance: cert-manager
+    app.kubernetes.io/name: webhook
+    app.kubernetes.io/version: v1.12.0
+  name: cert-manager-webhook
+  namespace: cert-manager
+  uid: 4658b225-c690-45ff-8053-871114c7faa7
+subsets:
+- addresses:
+  - ip: 10.244.0.236
+    nodeName: minikube
+    targetRef:
+      kind: Pod
+      name: cert-manager-webhook-5655dcfb4b-w5mn2
+      namespace: cert-manager
+      uid: ddcad1b0-18e1-484a-bedb-cf9abdfc5b90
+  ports:
+  - name: https
+    port: 10250
+    protocol: TCP

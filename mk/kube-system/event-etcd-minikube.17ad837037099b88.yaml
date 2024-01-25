@@ -1,0 +1,26 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:31Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{etcd}
+  kind: Pod
+  name: etcd-minikube
+  namespace: kube-system
+  uid: 8af0e85a28544808d52bb7c47ad824ed
+kind: Event
+lastTimestamp: "2024-01-25T06:32:31Z"
+message: Started container etcd
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: etcd-minikube.17ad837037099b88
+  namespace: kube-system
+  uid: 0ad2af26-7a81-47b1-a84b-248b402deff9
+reason: Started
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

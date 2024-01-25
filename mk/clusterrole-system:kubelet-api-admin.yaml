@@ -1,0 +1,34 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  creationTimestamp: "2023-09-01T13:06:13Z"
+  labels:
+    kubernetes.io/bootstrapping: rbac-defaults
+  name: system:kubelet-api-admin
+  uid: 4c0bf9b5-b51f-4b75-aff1-f4d7b0ea53c5
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs:
+  - proxy
+- apiGroups:
+  - ""
+  resources:
+  - nodes/log
+  - nodes/metrics
+  - nodes/proxy
+  - nodes/stats
+  verbs:
+  - '*'

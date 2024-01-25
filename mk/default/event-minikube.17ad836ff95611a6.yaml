@@ -1,0 +1,23 @@
+apiVersion: v1
+count: 7
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:30Z"
+involvedObject:
+  kind: Node
+  name: minikube
+  uid: minikube
+kind: Event
+lastTimestamp: "2024-01-25T06:32:30Z"
+message: 'Node minikube status is now: NodeHasSufficientPID'
+metadata:
+  creationTimestamp: "2024-01-25T06:32:37Z"
+  name: minikube.17ad836ff95611a6
+  namespace: default
+  uid: 38e1373d-4589-4df5-b2cf-8032bcd2dfbc
+reason: NodeHasSufficientPID
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

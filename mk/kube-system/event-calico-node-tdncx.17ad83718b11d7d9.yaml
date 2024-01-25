@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:37Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.initContainers{upgrade-ipam}
+  kind: Pod
+  name: calico-node-tdncx
+  namespace: kube-system
+  resourceVersion: "1608636"
+  uid: 5f40c6a5-9fb4-4214-ace2-2e8e84832da4
+kind: Event
+lastTimestamp: "2024-01-25T06:32:37Z"
+message: Created container upgrade-ipam
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: calico-node-tdncx.17ad83718b11d7d9
+  namespace: kube-system
+  uid: 7a46fcab-2dbe-44a0-92d0-e8a96c240679
+reason: Created
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

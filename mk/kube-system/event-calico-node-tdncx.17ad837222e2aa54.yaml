@@ -1,0 +1,27 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:40Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.initContainers{install-cni}
+  kind: Pod
+  name: calico-node-tdncx
+  namespace: kube-system
+  resourceVersion: "1608636"
+  uid: 5f40c6a5-9fb4-4214-ace2-2e8e84832da4
+kind: Event
+lastTimestamp: "2024-01-25T06:32:40Z"
+message: Container image "docker.io/calico/cni:v3.26.1" already present on machine
+metadata:
+  creationTimestamp: "2024-01-25T06:32:40Z"
+  name: calico-node-tdncx.17ad837222e2aa54
+  namespace: kube-system
+  uid: 3bc50085-cd92-47f3-b435-d42d83efa02e
+reason: Pulled
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal

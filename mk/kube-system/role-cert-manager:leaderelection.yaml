@@ -1,0 +1,33 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"Role","metadata":{"annotations":{},"labels":{"app":"cert-manager","app.kubernetes.io/component":"controller","app.kubernetes.io/instance":"cert-manager","app.kubernetes.io/name":"cert-manager","app.kubernetes.io/version":"v1.12.0"},"name":"cert-manager:leaderelection","namespace":"kube-system"},"rules":[{"apiGroups":["coordination.k8s.io"],"resourceNames":["cert-manager-controller"],"resources":["leases"],"verbs":["get","update","patch"]},{"apiGroups":["coordination.k8s.io"],"resources":["leases"],"verbs":["create"]}]}
+  creationTimestamp: "2024-01-02T05:31:33Z"
+  labels:
+    app: cert-manager
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: cert-manager
+    app.kubernetes.io/name: cert-manager
+    app.kubernetes.io/version: v1.12.0
+  name: cert-manager:leaderelection
+  namespace: kube-system
+  uid: 38a25846-a81d-4b79-a8f0-8764b5e78ec2
+rules:
+- apiGroups:
+  - coordination.k8s.io
+  resourceNames:
+  - cert-manager-controller
+  resources:
+  - leases
+  verbs:
+  - get
+  - update
+  - patch
+- apiGroups:
+  - coordination.k8s.io
+  resources:
+  - leases
+  verbs:
+  - create

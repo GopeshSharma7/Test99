@@ -1,0 +1,26 @@
+apiVersion: v1
+count: 1
+eventTime: null
+firstTimestamp: "2024-01-25T06:32:31Z"
+involvedObject:
+  apiVersion: v1
+  fieldPath: spec.containers{etcd}
+  kind: Pod
+  name: etcd-minikube
+  namespace: kube-system
+  uid: 8af0e85a28544808d52bb7c47ad824ed
+kind: Event
+lastTimestamp: "2024-01-25T06:32:31Z"
+message: Container image "registry.k8s.io/etcd:3.5.7-0" already present on machine
+metadata:
+  creationTimestamp: "2024-01-25T06:32:38Z"
+  name: etcd-minikube.17ad83702c63f4ed
+  namespace: kube-system
+  uid: ebdb6e40-4e4a-46bd-9ade-6f760313f9d0
+reason: Pulled
+reportingComponent: ""
+reportingInstance: ""
+source:
+  component: kubelet
+  host: minikube
+type: Normal
