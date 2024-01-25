@@ -1,0 +1,169 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    prometheus.io/port: "7472"
+    prometheus.io/scrape: "true"
+  creationTimestamp: "2024-01-02T05:31:56Z"
+  generateName: controller-595f88d88f-
+  labels:
+    app: metallb
+    component: controller
+    pod-template-hash: 595f88d88f
+  name: controller-595f88d88f-vzh8v
+  namespace: metallb-system
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: controller-595f88d88f
+    uid: 3462441a-a6ee-41ce-9be4-57ffb438b0be
+  uid: ba0eb06a-abf9-4545-b945-8959f7317a30
+spec:
+  containers:
+  - args:
+    - --port=7472
+    - --log-level=info
+    env:
+    - name: METALLB_ML_SECRET_NAME
+      value: memberlist
+    - name: METALLB_DEPLOYMENT
+      value: controller
+    image: quay.io/metallb/controller:v0.13.10
+    imagePullPolicy: IfNotPresent
+    livenessProbe:
+      failureThreshold: 3
+      httpGet:
+        path: /metrics
+        port: monitoring
+        scheme: HTTP
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    name: controller
+    ports:
+    - containerPort: 7472
+      name: monitoring
+      protocol: TCP
+    - containerPort: 9443
+      name: webhook-server
+      protocol: TCP
+    readinessProbe:
+      failureThreshold: 3
+      httpGet:
+        path: /metrics
+        port: monitoring
+        scheme: HTTP
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    resources: {}
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - all
+      readOnlyRootFilesystem: true
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /tmp/k8s-webhook-server/serving-certs
+      name: cert
+      readOnly: true
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-nf9m5
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  nodeSelector:
+    kubernetes.io/os: linux
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext:
+    fsGroup: 65534
+    runAsNonRoot: true
+    runAsUser: 65534
+  serviceAccount: controller
+  serviceAccountName: controller
+  terminationGracePeriodSeconds: 0
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: cert
+    secret:
+      defaultMode: 420
+      secretName: webhook-server-cert
+  - name: kube-api-access-nf9m5
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2024-01-02T05:31:56Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2024-01-25T06:33:28Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2024-01-25T06:33:28Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2024-01-02T05:31:56Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://47cec7ecbe6a9f5da7fcd3ccc9ece1e69ef60bd766799bbd05bfb3bc87f0f71a
+    image: quay.io/metallb/controller:v0.13.10
+    imageID: docker-pullable://quay.io/metallb/controller@sha256:1b33357b3595468aac9d5b9115fc4d35fc475124551180956083294cdeeb94b6
+    lastState:
+      terminated:
+        containerID: docker://2671748e8a1f173d8584ef29892fd0029064ecfce3d01dc4d96be40eea8243e8
+        exitCode: 1
+        finishedAt: "2024-01-25T06:33:08Z"
+        reason: Error
+        startedAt: "2024-01-25T06:32:38Z"
+    name: controller
+    ready: true
+    restartCount: 18
+    started: true
+    state:
+      running:
+        startedAt: "2024-01-25T06:33:09Z"
+  hostIP: 192.168.49.2
+  phase: Running
+  podIP: 10.244.0.241
+  podIPs:
+  - ip: 10.244.0.241
+  qosClass: BestEffort
+  startTime: "2024-01-02T05:31:56Z"

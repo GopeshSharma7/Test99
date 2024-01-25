@@ -1,0 +1,43 @@
+apiVersion: crd.projectcalico.org/v1
+kind: KubeControllersConfiguration
+metadata:
+  annotations:
+    projectcalico.org/metadata: '{"uid":"f66765a4-187d-4208-a73f-4db3846839ca","creationTimestamp":"2023-12-27T18:11:11Z"}'
+  creationTimestamp: "2023-12-27T18:11:11Z"
+  labels:
+    author: system_serviceaccount_kube-system_calico-kube-controllers
+    operation: UPDATE
+  name: default
+  uid: f66765a4-187d-4208-a73f-4db3846839ca
+spec:
+  controllers:
+    namespace:
+      reconcilerPeriod: 5m0s
+    node:
+      leakGracePeriod: 15m0s
+      reconcilerPeriod: 5m0s
+      syncLabels: Enabled
+    policy:
+      reconcilerPeriod: 5m0s
+    serviceAccount:
+      reconcilerPeriod: 5m0s
+    workloadEndpoint:
+      reconcilerPeriod: 5m0s
+  etcdV3CompactionPeriod: 10m0s
+  healthChecks: Enabled
+  logSeverityScreen: Info
+  prometheusMetricsPort: 9094
+status:
+  environmentVars:
+    DATASTORE_TYPE: kubernetes
+    ENABLED_CONTROLLERS: node
+  runningConfig:
+    controllers:
+      node:
+        hostEndpoint:
+          autoCreate: Disabled
+        leakGracePeriod: 15m0s
+        syncLabels: Disabled
+    etcdV3CompactionPeriod: 10m0s
+    healthChecks: Enabled
+    logSeverityScreen: Info

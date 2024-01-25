@@ -1,0 +1,289 @@
+apiVersion: v1
+kind: Node
+metadata:
+  annotations:
+    kubeadm.alpha.kubernetes.io/cri-socket: unix:///var/run/cri-dockerd.sock
+    node.alpha.kubernetes.io/ttl: "0"
+    projectcalico.org/IPv4Address: 192.168.49.2/24
+    projectcalico.org/IPv4IPIPTunnelAddr: 10.244.120.64
+    volumes.kubernetes.io/controller-managed-attach-detach: "true"
+  creationTimestamp: "2023-09-01T13:06:11Z"
+  labels:
+    beta.kubernetes.io/arch: arm64
+    beta.kubernetes.io/os: linux
+    kubernetes.io/arch: arm64
+    kubernetes.io/hostname: minikube
+    kubernetes.io/os: linux
+    minikube.k8s.io/commit: fd7ecd9c4599bef9f04c0986c4a0187f98a4396e
+    minikube.k8s.io/name: minikube
+    minikube.k8s.io/primary: "true"
+    minikube.k8s.io/updated_at: 2023_09_01T18_36_14_0700
+    minikube.k8s.io/version: v1.31.2
+    node-role.kubernetes.io/control-plane: ""
+    node.kubernetes.io/exclude-from-external-load-balancers: ""
+  name: minikube
+  uid: 7430868f-dbf0-4399-916e-ec5f730ad7fc
+spec:
+  podCIDR: 10.244.0.0/24
+  podCIDRs:
+  - 10.244.0.0/24
+status:
+  addresses:
+  - address: 192.168.49.2
+    type: InternalIP
+  - address: minikube
+    type: Hostname
+  allocatable:
+    cpu: "5"
+    ephemeral-storage: 61202244Ki
+    hugepages-1Gi: "0"
+    hugepages-2Mi: "0"
+    hugepages-32Mi: "0"
+    hugepages-64Ki: "0"
+    memory: 8039872Ki
+    pods: "110"
+  capacity:
+    cpu: "5"
+    ephemeral-storage: 61202244Ki
+    hugepages-1Gi: "0"
+    hugepages-2Mi: "0"
+    hugepages-32Mi: "0"
+    hugepages-64Ki: "0"
+    memory: 8039872Ki
+    pods: "110"
+  conditions:
+  - lastHeartbeatTime: "2024-01-25T06:32:43Z"
+    lastTransitionTime: "2024-01-25T06:32:43Z"
+    message: Calico is running on this node
+    reason: CalicoIsUp
+    status: "False"
+    type: NetworkUnavailable
+  - lastHeartbeatTime: "2024-01-25T06:44:09Z"
+    lastTransitionTime: "2024-01-25T06:30:41Z"
+    message: kubelet has sufficient memory available
+    reason: KubeletHasSufficientMemory
+    status: "False"
+    type: MemoryPressure
+  - lastHeartbeatTime: "2024-01-25T06:44:09Z"
+    lastTransitionTime: "2024-01-25T06:30:41Z"
+    message: kubelet has no disk pressure
+    reason: KubeletHasNoDiskPressure
+    status: "False"
+    type: DiskPressure
+  - lastHeartbeatTime: "2024-01-25T06:44:09Z"
+    lastTransitionTime: "2024-01-25T06:30:41Z"
+    message: kubelet has sufficient PID available
+    reason: KubeletHasSufficientPID
+    status: "False"
+    type: PIDPressure
+  - lastHeartbeatTime: "2024-01-25T06:44:09Z"
+    lastTransitionTime: "2024-01-25T06:30:41Z"
+    message: kubelet is posting ready status
+    reason: KubeletReady
+    status: "True"
+    type: Ready
+  daemonEndpoints:
+    kubeletEndpoint:
+      Port: 10250
+  images:
+  - names:
+    - sharmag07/url-short@sha256:790976208330dbb1941cb31248c7bb64d4cdd4c04e3f8e87ef9eceb5f7c0493f
+    - sharmag07/url-short:a2
+    sizeBytes: 924982683
+  - names:
+    - sharmag07/shorturl@sha256:3397e2a384808380caf093534ac9b1e5c8571cebda5993c75f1d16ac6f0de9e2
+    - sharmag07/shorturl:g1
+    sizeBytes: 918601465
+  - names:
+    - calico/node@sha256:8e34517775f319917a0be516ed3a373dbfca650d1ee8e72158087c24356f47fb
+    - calico/node:v3.26.1
+    sizeBytes: 257943189
+  - names:
+    - calico/cni@sha256:3be3c67ddba17004c292eafec98cc49368ac273b40b27c8a6621be4471d348d6
+    - calico/cni:v3.26.1
+    sizeBytes: 199481277
+  - names:
+    - nginx@sha256:86e53c4c16a6a276b204b0fd3a8143d86547c967dc8258b3d47c3a21bb68d3c6
+    sizeBytes: 192076209
+  - names:
+    - nginx@sha256:b4af4f8b6470febf45dc10f564551af682a802eda1743055a7dfc8332dffa595
+    sizeBytes: 192070573
+  - names:
+    - nginx@sha256:32da30332506740a2f7c34d5dc70467b7f14ec67d912703568daff790ab3f755
+    sizeBytes: 192063434
+  - names:
+    - nginx@sha256:104c7c5c54f2685f0f46f3be607ce60da7085da3eaa5ad22d3d9f01594295e9c
+    sizeBytes: 192063326
+  - names:
+    - nginx@sha256:4c0fdaa8b6341bfdeca5f18f7837462c80cff90527ee35ef185571e1c327beac
+    - nginx:latest
+    sizeBytes: 192021105
+  - names:
+    - nginx@sha256:2bdc49f2f8ae8d8dc50ed00f2ee56d00385c6f8bc8a8b320d0a294d9e3b49026
+    - nginx@sha256:6959ee03b2d6a01addb4fb5e26c5ef95c60bd3108d810636409ce63f02924ad3
+    sizeBytes: 192021101
+  - names:
+    - registry.k8s.io/etcd@sha256:51eae8381dcb1078289fa7b4f3df2630cdc18d09fb56f8e56b41c40e191d6c83
+    - registry.k8s.io/etcd:3.5.7-0
+    sizeBytes: 180928685
+  - names:
+    - registry.k8s.io/kube-apiserver@sha256:697cd88d94f7f2ef42144cb3072b016dcb2e9251f0e7d41a7fede557e555452d
+    - registry.k8s.io/kube-apiserver:v1.27.4
+    sizeBytes: 114845498
+  - names:
+    - quay.io/metallb/speaker@sha256:00406ccb1fa08d48cc0ed0b43db7b3cbc3ccc1c4da0e38fca648e64639b06c3c
+    - quay.io/metallb/speaker:v0.13.10
+    sizeBytes: 111403812
+  - names:
+    - sharmag07/katafygio@sha256:cd99f4b7fe42ebde2ad0c9b8820a32f46d52aaa9a9c23cb74cea9a65e95e4407
+    - sharmag07/katafygio:u1
+    sizeBytes: 109125936
+  - names:
+    - sharmag07/mutatingwebhook@sha256:2aa7328d80e7a4bba5e5e325d6ce63902c91df7bc6b994252b1cd434042227ac
+    - sharmag07/mutatingwebhook:m6
+    sizeBytes: 107875480
+  - names:
+    - sharmag07/mutatingwebhook@sha256:a4c3598356fea91152fa4d79450aef61ac2109796edb4ee4653a6eafe5b8e58c
+    - sharmag07/mutatingwebhook:m9
+    sizeBytes: 107871342
+  - names:
+    - sharmag07/mutatingwebhook@sha256:25c519d2db236b6fdedff7f68d828db91f8e5521645fd9fa8e95a2e8840e8d1d
+    - sharmag07/mutatingwebhook:m7
+    sizeBytes: 107866688
+  - names:
+    - registry.k8s.io/kube-controller-manager@sha256:6286e500782ad6d0b37a1b8be57fc73f597dc931dfc73ff18ce534059803b265
+    - registry.k8s.io/kube-controller-manager:v1.27.4
+    sizeBytes: 107243659
+  - names:
+    - calico/kube-controllers@sha256:01ce29ea8f2b34b6cef904f526baed98db4c0581102f194e36f2cd97943f77aa
+    - calico/kube-controllers:v3.26.1
+    sizeBytes: 68842373
+  - names:
+    - sharmag07/katafygio@sha256:6ffc686ec8f40d2f88ac143732bd5bdfb598b2a638e3b8772a16b08207e7efc2
+    - sharmag07/katafygio:latest
+    sizeBytes: 67260789
+  - names:
+    - sharmag07/katafygio@sha256:5e862a2f0ac40b980aa396a841dc09a0725941a84603941766547ee18121242b
+    sizeBytes: 67195064
+  - names:
+    - sharmag07/katafygio@sha256:6fef896d12ce1a3608277b395cf2c7744c17f749690c2d1234fb669336d6ad67
+    sizeBytes: 67195064
+  - names:
+    - registry.k8s.io/kube-proxy@sha256:4bcb707da9898d2625f5d4edc6d0c96519a24f16db914fc673aa8f97e41dbabf
+    - registry.k8s.io/kube-proxy:v1.27.4
+    sizeBytes: 66499400
+  - names:
+    - sharmag07/katafygio@sha256:8ec9fc6e7436fdfe6d17cbad8addae7f09aa1261f7c5cc56eef39314d7826d92
+    - sharmag07/katafygio:k8
+    sizeBytes: 66063039
+  - names:
+    - sharmag07/katafygio@sha256:994627fb9e193e99e637e511bcf1eaf3ca7af5fffb236e97d39a7354db86c293
+    - sharmag07/katafygio:k7
+    sizeBytes: 66062937
+  - names:
+    - sharmag07/katafygio@sha256:68f643c6e2d29aa32736849e57dccfb18c91b0093b8bfc86db617f79bfb8b680
+    - sharmag07/katafygio:k5
+    sizeBytes: 66062937
+  - names:
+    - sharmag07/katafygio@sha256:404df29b303da7d37bd0de2127cbd79f15fd8ca5a443de8acd2b11ffc537c6aa
+    - sharmag07/katafygio:k6
+    sizeBytes: 66062937
+  - names:
+    - sharmag07/katafygio@sha256:9790431d3d265d02757b150b11b329f68331e695f54c480117352dcf14507bf9
+    - sharmag07/katafygio:k10
+    sizeBytes: 66062497
+  - names:
+    - sharmag07/katafygio@sha256:ec07752a99dc0149a17c5fe4fef8ea7a9571ec07bb0a0d094d0fc62842adb132
+    - sharmag07/katafygio:k12
+    sizeBytes: 66062497
+  - names:
+    - sharmag07/katafygio@sha256:f521249065a457d4fbc3fe129f6200bce320adc64e8be87ba53776dedb54d003
+    - sharmag07/katafygio:k11
+    sizeBytes: 66062497
+  - names:
+    - sharmag07/katafygio@sha256:9d8c4ff185964597dd023013b48543c80b3c286874700e9aa4327d200c7eee11
+    - sharmag07/katafygio:k9
+    sizeBytes: 66062395
+  - names:
+    - sharmag07/katafygio@sha256:9bd98b537cb2f6a923b5ac403cbdf3d2517069fe00f7b84454f1825895344b4d
+    - sharmag07/katafygio:k13
+    sizeBytes: 66062391
+  - names:
+    - sharmag07/katafygio@sha256:556689d3d29cfdebef9661820cf0cc87bf0860c49c69c548c15d26f245cdfafd
+    - sharmag07/katafygio:k14
+    sizeBytes: 66062300
+  - names:
+    - sharmag07/katafygio@sha256:0d9a8900a1c0ab5b2f98e1b1c940c6b298ca6c9cf6abd52aca5c15f979b8507d
+    sizeBytes: 66062300
+  - names:
+    - sharmag07/katafygio@sha256:064a18a488e93889914ed093b275f66c437df87773c2e647605f1a9725f68055
+    - sharmag07/katafygio:k16
+    sizeBytes: 66062300
+  - names:
+    - sharmag07/katafygio@sha256:d52d54664b48be985c63b7f6635fc033974ad3272a28d263d20122729383b6fc
+    sizeBytes: 66062223
+  - names:
+    - sharmag07/katafygio@sha256:90367550939bda0b0758fa48a836139a634bade98ae7d9fd2557e415cb318546
+    sizeBytes: 66062223
+  - names:
+    - sharmag07/katafygio@sha256:9aa12d77a4ef8e7c5c8372626c09df6508b0370a90e279328cd8c05974a1c923
+    sizeBytes: 66062223
+  - names:
+    - sharmag07/katafygio@sha256:18daaf1510ad79f3cd0619e330af6fefed5a560d34f855e90ecea9f378d69dae
+    - sharmag07/katafygio:k17
+    sizeBytes: 66062223
+  - names:
+    - sharmag07/katafygio@sha256:67b1f3070e6e02084296a92b863467e4edb577add184856d54d9a7cfbfe6b2db
+    - sharmag07/katafygio:k3
+    sizeBytes: 66062210
+  - names:
+    - sharmag07/katafygio@sha256:809fc9465e6c30abd3b896e7cb10f6d4fa2d2c2f92234124ffe169cc57f5e4f5
+    - sharmag07/katafygio:k4
+    sizeBytes: 66062210
+  - names:
+    - sharmag07/katafygio@sha256:9418241cf3fcd33b046400dd4c454c8c11e2e3c72f896197cbbe8d4c7252d145
+    - sharmag07/katafygio:k2
+    sizeBytes: 66062153
+  - names:
+    - sharmag07/katafygio@sha256:69748b0046215d08603fca616505194032733edbd55a53ee0a0f7e9ee8ed1ebe
+    - sharmag07/katafygio:k1
+    sizeBytes: 66062153
+  - names:
+    - quay.io/metallb/controller@sha256:1b33357b3595468aac9d5b9115fc4d35fc475124551180956083294cdeeb94b6
+    - quay.io/metallb/controller:v0.13.10
+    sizeBytes: 63187900
+  - names:
+    - quay.io/jetstack/cert-manager-controller@sha256:4a9d0264055b4e7e791def9702e74eb76c2ff022ba185218395ec6ae22118df7
+    - quay.io/jetstack/cert-manager-controller:v1.12.0
+    sizeBytes: 61106968
+  - names:
+    - registry.k8s.io/kube-scheduler@sha256:5897d7a97d23dce25cbf36fcd6e919180a8ef904bf5156583ffdb6a733ab04af
+    - registry.k8s.io/kube-scheduler:v1.27.4
+    sizeBytes: 56191115
+  - names:
+    - bpineau/katafygio@sha256:71ffb0eed81e0b4a63670436e214493132136389dc27526efdd076825b48c786
+    - bpineau/katafygio:v0.8.3
+    sizeBytes: 54049509
+  - names:
+    - gcr.io/kubebuilder/kube-rbac-proxy@sha256:928e64203edad8f1bba23593c7be04f0f8410c6e4feb98d9e9c2d00a8ff59048
+    - gcr.io/kubebuilder/kube-rbac-proxy:v0.14.1
+    sizeBytes: 53979549
+  - names:
+    - sharmag07/ctrl@sha256:d111e80c16d027da06496d1141220b752253cc1a3b084e9c89790a91a835ff47
+    - sharmag07/ctrl:latest
+    sizeBytes: 52529420
+  - names:
+    - sharmag07/controller@sha256:59a917dc68223d278775c87b8f887db20f5167f3ddc7a8b313ed05d58fcc1fb4
+    - sharmag07/controller:latest
+    sizeBytes: 52523479
+  nodeInfo:
+    architecture: arm64
+    bootID: fe5ecabe-2317-4ed8-8035-85603d971440
+    containerRuntimeVersion: docker://24.0.4
+    kernelVersion: 5.15.49-linuxkit-pr
+    kubeProxyVersion: v1.27.4
+    kubeletVersion: v1.27.4
+    machineID: 943f6f6fcdd74771a8897e0bafca7fc8
+    operatingSystem: linux
+    osImage: Ubuntu 22.04.2 LTS
+    systemUUID: 943f6f6fcdd74771a8897e0bafca7fc8

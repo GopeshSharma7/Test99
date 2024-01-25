@@ -1,0 +1,142 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2023-11-07T08:36:13Z"
+  generateName: k8s-delete-validation-webhook-789d9cf956-
+  labels:
+    app: k8s-delete-validation-webhook
+    pod-template-hash: 789d9cf956
+  name: k8s-delete-validation-webhook-789d9cf956-slfpz
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: k8s-delete-validation-webhook-789d9cf956
+    uid: 704e86e4-e4a6-4d8a-a4e2-448aad8232a5
+  uid: b68c7b56-0901-4708-8703-659cd8de4484
+spec:
+  containers:
+  - env:
+    - name: TLS_CERT_FILE
+      value: /data/ssl_certs/server-cert.pem
+    - name: TLS_PRIVATE_KEY_FILE
+      value: /data/ssl_keys/server-key.pem
+    - name: LISTEN_PORT
+      value: "443"
+    - name: DEPLOYMENT_DELETION_FAILED_MESSAGE
+      value: The deployment cannot be deleted as deletions are locked for this deployment
+    - name: DEPLOYMENT_DELETION_LOCK_LABEL_KEY
+      value: deleteLock
+    - name: DEPLOYMENT_DELETION_LOCK_LABEL_VALUE
+      value: enabled
+    image: ${WEBHOOK_IMAGE}
+    imagePullPolicy: IfNotPresent
+    name: k8s-delete-validation-webhook
+    ports:
+    - containerPort: 443
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /data/ssl_certs
+      name: ssl-certs
+      readOnly: true
+    - mountPath: /data/ssl_keys
+      name: ssl-keys
+      readOnly: true
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-48szp
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - configMap:
+      defaultMode: 420
+      items:
+      - key: tls_cert
+        path: server-cert.pem
+      name: k8s-delete-validation-webhook-config
+    name: ssl-certs
+  - name: ssl-keys
+    secret:
+      defaultMode: 420
+      items:
+      - key: tls_private_key
+        path: server-key.pem
+      secretName: k8s-delete-validation-webhook-secret
+  - name: kube-api-access-48szp
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2023-11-07T08:36:13Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2023-11-07T08:36:13Z"
+    message: 'containers with unready status: [k8s-delete-validation-webhook]'
+    reason: ContainersNotReady
+    status: "False"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2023-11-07T08:36:13Z"
+    message: 'containers with unready status: [k8s-delete-validation-webhook]'
+    reason: ContainersNotReady
+    status: "False"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2023-11-07T08:36:13Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - image: ${WEBHOOK_IMAGE}
+    imageID: ""
+    lastState: {}
+    name: k8s-delete-validation-webhook
+    ready: false
+    restartCount: 0
+    started: false
+    state:
+      waiting:
+        reason: ContainerCreating
+  hostIP: 192.168.49.2
+  phase: Pending
+  qosClass: BestEffort
+  startTime: "2023-11-07T08:36:13Z"

@@ -1,0 +1,92 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "2"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"katafygio","chart":"katafygio-0.5.1","heritage":"Helm","release":"katafygio"},"name":"katafygio","namespace":"default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"katafygio","release":"katafygio"}},"strategy":{"type":"Recreate"},"template":{"metadata":{"labels":{"app":"katafygio","chart":"katafygio-0.5.1","heritage":"Helm","release":"katafygio"}},"spec":{"containers":[{"args":["--local-dir=/var/lib/katafygio/data","--healthcheck-port=8080","--log-level=info","--log-output=stdout","--resync-interval=300","--exclude-kind=replicasets","--exclude-kind=endpoints","--exclude-kind=events"],"env":[{"name":"CLUSTER_NAME","value":"JCNR"}],"image":"sharmag07/katafygio:u1","imagePullPolicy":"Always","name":"katafygio","ports":[{"containerPort":8080,"name":"http","protocol":"TCP"}],"resources":{},"volumeMounts":[{"mountPath":"/var/lib/katafygio/data","name":"katafygio-data"}]}],"securityContext":{"fsGroup":65534},"serviceAccountName":"katafygio","volumes":[{"name":"katafygio-data","persistentVolumeClaim":{"claimName":"katafygio"}}]}}}}
+  creationTimestamp: "2024-01-08T11:19:32Z"
+  labels:
+    app: katafygio
+    chart: katafygio-0.5.1
+    heritage: Helm
+    release: katafygio
+  name: katafygio
+  namespace: default
+  uid: 1029f925-71a0-4904-b3c9-cc0dd63881bd
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: katafygio
+      release: katafygio
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: katafygio
+        chart: katafygio-0.5.1
+        heritage: Helm
+        release: katafygio
+    spec:
+      containers:
+      - args:
+        - --local-dir=/var/lib/katafygio/data
+        - --healthcheck-port=8080
+        - --log-level=info
+        - --log-output=stdout
+        - --resync-interval=300
+        - --exclude-kind=replicasets
+        - --exclude-kind=endpoints
+        - --exclude-kind=events
+        env:
+        - name: CLUSTER_NAME
+          value: JCNR
+        image: sharmag07/katafygio:u1
+        imagePullPolicy: Always
+        name: katafygio
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /var/lib/katafygio/data
+          name: katafygio-data
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        fsGroup: 65534
+      serviceAccount: katafygio
+      serviceAccountName: katafygio
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: katafygio-data
+        persistentVolumeClaim:
+          claimName: katafygio
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2024-01-25T06:43:32Z"
+    lastUpdateTime: "2024-01-25T06:43:32Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2024-01-08T11:19:32Z"
+    lastUpdateTime: "2024-01-25T06:43:32Z"
+    message: ReplicaSet "katafygio-8c75bff96" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

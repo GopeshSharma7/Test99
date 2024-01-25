@@ -1,0 +1,20 @@
+apiVersion: apiregistration.k8s.io/v1
+kind: APIService
+metadata:
+  creationTimestamp: "2023-12-27T18:10:35Z"
+  labels:
+    kube-aggregator.kubernetes.io/automanaged: "true"
+  name: v1.crd.projectcalico.org
+  uid: 39db66d9-6e12-4b83-8b7e-1a5d74b77656
+spec:
+  group: crd.projectcalico.org
+  groupPriorityMinimum: 1000
+  version: v1
+  versionPriority: 100
+status:
+  conditions:
+  - lastTransitionTime: "2023-12-27T18:10:35Z"
+    message: Local APIServices are always available
+    reason: Local
+    status: "True"
+    type: Available

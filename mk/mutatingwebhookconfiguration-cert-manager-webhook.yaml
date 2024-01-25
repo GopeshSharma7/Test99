@@ -1,0 +1,46 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  annotations:
+    cert-manager.io/inject-ca-from-secret: cert-manager/cert-manager-webhook-ca
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"admissionregistration.k8s.io/v1","kind":"MutatingWebhookConfiguration","metadata":{"annotations":{"cert-manager.io/inject-ca-from-secret":"cert-manager/cert-manager-webhook-ca"},"labels":{"app":"webhook","app.kubernetes.io/component":"webhook","app.kubernetes.io/instance":"cert-manager","app.kubernetes.io/name":"webhook","app.kubernetes.io/version":"v1.12.0"},"name":"cert-manager-webhook"},"webhooks":[{"admissionReviewVersions":["v1"],"clientConfig":{"service":{"name":"cert-manager-webhook","namespace":"cert-manager","path":"/mutate"}},"failurePolicy":"Fail","matchPolicy":"Equivalent","name":"webhook.cert-manager.io","rules":[{"apiGroups":["cert-manager.io","acme.cert-manager.io"],"apiVersions":["v1"],"operations":["CREATE","UPDATE"],"resources":["*/*"]}],"sideEffects":"None","timeoutSeconds":10}]}
+  creationTimestamp: "2024-01-02T05:31:34Z"
+  labels:
+    app: webhook
+    app.kubernetes.io/component: webhook
+    app.kubernetes.io/instance: cert-manager
+    app.kubernetes.io/name: webhook
+    app.kubernetes.io/version: v1.12.0
+  name: cert-manager-webhook
+  uid: 36e2ee7f-4cf2-4105-83ac-f5be5a84f6b5
+webhooks:
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJ3akNDQVVpZ0F3SUJBZ0lSQUpidmpDa0lMQ1pHWmVhM05xZHFTZEF3Q2dZSUtvWkl6ajBFQXdNd0lqRWcKTUI0R0ExVUVBeE1YWTJWeWRDMXRZVzVoWjJWeUxYZGxZbWh2YjJzdFkyRXdIaGNOTWpRd01UQXlNRFV6TVRVdwpXaGNOTWpVd01UQXhNRFV6TVRVd1dqQWlNU0F3SGdZRFZRUURFeGRqWlhKMExXMWhibUZuWlhJdGQyVmlhRzl2CmF5MWpZVEIyTUJBR0J5cUdTTTQ5QWdFR0JTdUJCQUFpQTJJQUJMbktXaUNWMk14R0swbm9RNVBIL24wazZYS0oKb0FlbktGeHZNVGRGMDRwZElMV0s3MlNkU0Z5bk9SdXd4RHRQUDRZbG1zTEFnYWx2d3pDK1NoM0xkeTZSK1B0MwozNyszSFhlRzVNQ3VsclFTdWZnVkh4a0ZJdURmVksxMEY5SlRSNk5DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trCk1BOEdBMVVkRXdFQi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZCN29pL3l5TTdjVDJhYnhSempueTR4aGFNVlgKTUFvR0NDcUdTTTQ5QkFNREEyZ0FNR1VDTVFEOG9ZV0crVCtpNGdzd3B1TUJLQlkvQ25uR0JnSms3b2VSbzM0Mwp4RUlTaFM1U2cwZ2ZiMEYzZ2ZwQk9iS2tnZHNDTUc5S3NmMVRuVnlCM254VStydnNCR2EvbFVqZVNzcncwNkd4CmhzUXBzR0RvSk9vVXNlalA3V1FGWkRHeUppWCt3dz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+    service:
+      name: cert-manager-webhook
+      namespace: cert-manager
+      path: /mutate
+      port: 443
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: webhook.cert-manager.io
+  namespaceSelector: {}
+  objectSelector: {}
+  reinvocationPolicy: Never
+  rules:
+  - apiGroups:
+    - cert-manager.io
+    - acme.cert-manager.io
+    apiVersions:
+    - v1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - '*/*'
+    scope: '*'
+  sideEffects: None
+  timeoutSeconds: 10

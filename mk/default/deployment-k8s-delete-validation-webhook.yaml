@@ -1,0 +1,98 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"k8s-delete-validation-webhook","namespace":"default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"k8s-delete-validation-webhook"}},"template":{"metadata":{"labels":{"app":"k8s-delete-validation-webhook"}},"spec":{"containers":[{"env":[{"name":"TLS_CERT_FILE","value":"/data/ssl_certs/server-cert.pem"},{"name":"TLS_PRIVATE_KEY_FILE","value":"/data/ssl_keys/server-key.pem"},{"name":"LISTEN_PORT","value":"443"},{"name":"DEPLOYMENT_DELETION_FAILED_MESSAGE","value":"The deployment cannot be deleted as deletions are locked for this deployment"},{"name":"DEPLOYMENT_DELETION_LOCK_LABEL_KEY","value":"deleteLock"},{"name":"DEPLOYMENT_DELETION_LOCK_LABEL_VALUE","value":"enabled"}],"image":"${WEBHOOK_IMAGE}","imagePullPolicy":"IfNotPresent","name":"k8s-delete-validation-webhook","ports":[{"containerPort":443}],"volumeMounts":[{"mountPath":"/data/ssl_certs","name":"ssl-certs","readOnly":true},{"mountPath":"/data/ssl_keys","name":"ssl-keys","readOnly":true}]}],"volumes":[{"configMap":{"items":[{"key":"tls_cert","path":"server-cert.pem"}],"name":"k8s-delete-validation-webhook-config"},"name":"ssl-certs"},{"name":"ssl-keys","secret":{"items":[{"key":"tls_private_key","path":"server-key.pem"}],"secretName":"k8s-delete-validation-webhook-secret"}}]}}}}
+  creationTimestamp: "2023-11-07T08:36:13Z"
+  name: k8s-delete-validation-webhook
+  namespace: default
+  uid: 732382ad-dda7-43d4-823b-3fbc52207a0c
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: k8s-delete-validation-webhook
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: k8s-delete-validation-webhook
+    spec:
+      containers:
+      - env:
+        - name: TLS_CERT_FILE
+          value: /data/ssl_certs/server-cert.pem
+        - name: TLS_PRIVATE_KEY_FILE
+          value: /data/ssl_keys/server-key.pem
+        - name: LISTEN_PORT
+          value: "443"
+        - name: DEPLOYMENT_DELETION_FAILED_MESSAGE
+          value: The deployment cannot be deleted as deletions are locked for this
+            deployment
+        - name: DEPLOYMENT_DELETION_LOCK_LABEL_KEY
+          value: deleteLock
+        - name: DEPLOYMENT_DELETION_LOCK_LABEL_VALUE
+          value: enabled
+        image: ${WEBHOOK_IMAGE}
+        imagePullPolicy: IfNotPresent
+        name: k8s-delete-validation-webhook
+        ports:
+        - containerPort: 443
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /data/ssl_certs
+          name: ssl-certs
+          readOnly: true
+        - mountPath: /data/ssl_keys
+          name: ssl-keys
+          readOnly: true
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          defaultMode: 420
+          items:
+          - key: tls_cert
+            path: server-cert.pem
+          name: k8s-delete-validation-webhook-config
+        name: ssl-certs
+      - name: ssl-keys
+        secret:
+          defaultMode: 420
+          items:
+          - key: tls_private_key
+            path: server-key.pem
+          secretName: k8s-delete-validation-webhook-secret
+status:
+  conditions:
+  - lastTransitionTime: "2023-11-07T08:36:13Z"
+    lastUpdateTime: "2023-11-07T08:36:13Z"
+    message: Deployment does not have minimum availability.
+    reason: MinimumReplicasUnavailable
+    status: "False"
+    type: Available
+  - lastTransitionTime: "2023-11-07T08:46:14Z"
+    lastUpdateTime: "2023-11-07T08:46:14Z"
+    message: ReplicaSet "k8s-delete-validation-webhook-789d9cf956" has timed out progressing.
+    reason: ProgressDeadlineExceeded
+    status: "False"
+    type: Progressing
+  observedGeneration: 1
+  replicas: 1
+  unavailableReplicas: 1
+  updatedReplicas: 1

@@ -1,0 +1,199 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"admissionregistration.k8s.io/v1","kind":"ValidatingWebhookConfiguration","metadata":{"annotations":{},"creationTimestamp":null,"name":"metallb-webhook-configuration"},"webhooks":[{"admissionReviewVersions":["v1"],"clientConfig":{"service":{"name":"webhook-service","namespace":"metallb-system","path":"/validate-metallb-io-v1beta2-bgppeer"}},"failurePolicy":"Fail","name":"bgppeersvalidationwebhook.metallb.io","rules":[{"apiGroups":["metallb.io"],"apiVersions":["v1beta2"],"operations":["CREATE","UPDATE"],"resources":["bgppeers"]}],"sideEffects":"None"},{"admissionReviewVersions":["v1"],"clientConfig":{"service":{"name":"webhook-service","namespace":"metallb-system","path":"/validate-metallb-io-v1beta1-addresspool"}},"failurePolicy":"Fail","name":"addresspoolvalidationwebhook.metallb.io","rules":[{"apiGroups":["metallb.io"],"apiVersions":["v1beta1"],"operations":["CREATE","UPDATE"],"resources":["addresspools"]}],"sideEffects":"None"},{"admissionReviewVersions":["v1"],"clientConfig":{"service":{"name":"webhook-service","namespace":"metallb-system","path":"/validate-metallb-io-v1beta1-bfdprofile"}},"failurePolicy":"Fail","name":"bfdprofilevalidationwebhook.metallb.io","rules":[{"apiGroups":["metallb.io"],"apiVersions":["v1beta1"],"operations":["CREATE","DELETE"],"resources":["bfdprofiles"]}],"sideEffects":"None"},{"admissionReviewVersions":["v1"],"clientConfig":{"service":{"name":"webhook-service","namespace":"metallb-system","path":"/validate-metallb-io-v1beta1-bgpadvertisement"}},"failurePolicy":"Fail","name":"bgpadvertisementvalidationwebhook.metallb.io","rules":[{"apiGroups":["metallb.io"],"apiVersions":["v1beta1"],"operations":["CREATE","UPDATE"],"resources":["bgpadvertisements"]}],"sideEffects":"None"},{"admissionReviewVersions":["v1"],"clientConfig":{"service":{"name":"webhook-service","namespace":"metallb-system","path":"/validate-metallb-io-v1beta1-community"}},"failurePolicy":"Fail","name":"communityvalidationwebhook.metallb.io","rules":[{"apiGroups":["metallb.io"],"apiVersions":["v1beta1"],"operations":["CREATE","UPDATE"],"resources":["communities"]}],"sideEffects":"None"},{"admissionReviewVersions":["v1"],"clientConfig":{"service":{"name":"webhook-service","namespace":"metallb-system","path":"/validate-metallb-io-v1beta1-ipaddresspool"}},"failurePolicy":"Fail","name":"ipaddresspoolvalidationwebhook.metallb.io","rules":[{"apiGroups":["metallb.io"],"apiVersions":["v1beta1"],"operations":["CREATE","UPDATE"],"resources":["ipaddresspools"]}],"sideEffects":"None"},{"admissionReviewVersions":["v1"],"clientConfig":{"service":{"name":"webhook-service","namespace":"metallb-system","path":"/validate-metallb-io-v1beta1-l2advertisement"}},"failurePolicy":"Fail","name":"l2advertisementvalidationwebhook.metallb.io","rules":[{"apiGroups":["metallb.io"],"apiVersions":["v1beta1"],"operations":["CREATE","UPDATE"],"resources":["l2advertisements"]}],"sideEffects":"None"}]}
+  creationTimestamp: "2024-01-02T05:31:56Z"
+  name: metallb-webhook-configuration
+  uid: 84e01e23-3eb8-4758-8dd7-ff5e8485caad
+webhooks:
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURFRENDQWZpZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFoTVJBd0RnWURWUVFLRXdkdFpYUmgKYkd4aU1RMHdDd1lEVlFRREV3UmpaWEowTUI0WERUSTBNREV3TWpBME16SXlNVm9YRFRNek1USXpNREExTXpJeQpNVm93SVRFUU1BNEdBMVVFQ2hNSGJXVjBZV3hzWWpFTk1Bc0dBMVVFQXhNRVkyVnlkRENDQVNJd0RRWUpLb1pJCmh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBSy9FVkM4Qk9wei9jcjBnRVJoL1d6aHJCKzR5eGVuTGtDcTEKb3k2TklyL1BlemsxNStZUmdleVBwRVFOOW8xeE9rNjJmbWJEd1FZOXdnaGczb3BiYWdhUWlQN2hmaXRrbldBZwpRQytibS9SR0ZLNmY2MUpRNmVPd21rTld4cW9iN3FiaDJpNGlxWHBKRThXMnNpdlU5cU45QjdxTXlMM2JIWmUvCmRVZTMyR3gxYzR3QjlpSWo5UDUvY1ZuYnl1VkV4eFFnaDM2ek0vdGROUlJudlIvc2Y1YWxGUHQwUC8va1lRZk0KYmR0YXBlbWJSSTRhR0JhOGlSQmlmRVRGQ1cxQUNTWS9DdmVjWVhGTVJWWlZIb0RvWnhvOWFhOEc4UlVJZUdkMApBTktaUldMTjNhdzBQMzg4U05JZy9qOVJTTXJnZ2VZNytxL1Mvc1JOdWtEYWxZMzNjWmNDQXdFQUFhTlRNRkV3CkRnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3SFFZRFZSME9CQllFRkw5djdVUTcKL0xZTFRjRWp6QTl2dWZGb0ZYb3BNQThHQTFVZEVRUUlNQWFDQkdObGNuUXdEUVlKS29aSWh2Y05BUUVMQlFBRApnZ0VCQUU1RXBCZ3lsdnMyaldoVnR3N3lOZ1NDalJiSlMzZGQ1STFjMVBtVWZlVmI0cXlrUDhreDRMaDMwMXV0CmpsRnRDTGYzU1FROGJiNnFqU2l1dDJNMmNLYm4vOER5YWhMV04ySlBIMHVUWUhOUXhtWU1tVFdhTkwvek9wMzQKMDdBVTFKUWNUZ3lkdnFjanpIQk5xcTFpSlVRLzRwWHRHaVp3bGlHNzBtSHI2MUxwWnRFZTFYZmdrZEJ1Z0t3WQpOYWtSTHBwNHpwUnZpakhHL05DTW44S0liczVoVFdodmk0bkhad0EyUHlDUGtERysyc3B4WDZRTE56OWc5bTZZClhPQlF1TVNZemJjK3l6cFU3ZGJnMTJlRGZXY0lEY3kyZlczdU85b1BJTDVnYzBkNk1zWVlsRm9BSlA3TFBrMkkKajJGbm9ubm8ybUVHdW1XNTI5RHVGSDZnRHM0PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    service:
+      name: webhook-service
+      namespace: metallb-system
+      path: /validate-metallb-io-v1beta2-bgppeer
+      port: 443
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: bgppeersvalidationwebhook.metallb.io
+  namespaceSelector: {}
+  objectSelector: {}
+  rules:
+  - apiGroups:
+    - metallb.io
+    apiVersions:
+    - v1beta2
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - bgppeers
+    scope: '*'
+  sideEffects: None
+  timeoutSeconds: 10
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURFRENDQWZpZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFoTVJBd0RnWURWUVFLRXdkdFpYUmgKYkd4aU1RMHdDd1lEVlFRREV3UmpaWEowTUI0WERUSTBNREV3TWpBME16SXlNVm9YRFRNek1USXpNREExTXpJeQpNVm93SVRFUU1BNEdBMVVFQ2hNSGJXVjBZV3hzWWpFTk1Bc0dBMVVFQXhNRVkyVnlkRENDQVNJd0RRWUpLb1pJCmh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBSy9FVkM4Qk9wei9jcjBnRVJoL1d6aHJCKzR5eGVuTGtDcTEKb3k2TklyL1BlemsxNStZUmdleVBwRVFOOW8xeE9rNjJmbWJEd1FZOXdnaGczb3BiYWdhUWlQN2hmaXRrbldBZwpRQytibS9SR0ZLNmY2MUpRNmVPd21rTld4cW9iN3FiaDJpNGlxWHBKRThXMnNpdlU5cU45QjdxTXlMM2JIWmUvCmRVZTMyR3gxYzR3QjlpSWo5UDUvY1ZuYnl1VkV4eFFnaDM2ek0vdGROUlJudlIvc2Y1YWxGUHQwUC8va1lRZk0KYmR0YXBlbWJSSTRhR0JhOGlSQmlmRVRGQ1cxQUNTWS9DdmVjWVhGTVJWWlZIb0RvWnhvOWFhOEc4UlVJZUdkMApBTktaUldMTjNhdzBQMzg4U05JZy9qOVJTTXJnZ2VZNytxL1Mvc1JOdWtEYWxZMzNjWmNDQXdFQUFhTlRNRkV3CkRnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3SFFZRFZSME9CQllFRkw5djdVUTcKL0xZTFRjRWp6QTl2dWZGb0ZYb3BNQThHQTFVZEVRUUlNQWFDQkdObGNuUXdEUVlKS29aSWh2Y05BUUVMQlFBRApnZ0VCQUU1RXBCZ3lsdnMyaldoVnR3N3lOZ1NDalJiSlMzZGQ1STFjMVBtVWZlVmI0cXlrUDhreDRMaDMwMXV0CmpsRnRDTGYzU1FROGJiNnFqU2l1dDJNMmNLYm4vOER5YWhMV04ySlBIMHVUWUhOUXhtWU1tVFdhTkwvek9wMzQKMDdBVTFKUWNUZ3lkdnFjanpIQk5xcTFpSlVRLzRwWHRHaVp3bGlHNzBtSHI2MUxwWnRFZTFYZmdrZEJ1Z0t3WQpOYWtSTHBwNHpwUnZpakhHL05DTW44S0liczVoVFdodmk0bkhad0EyUHlDUGtERysyc3B4WDZRTE56OWc5bTZZClhPQlF1TVNZemJjK3l6cFU3ZGJnMTJlRGZXY0lEY3kyZlczdU85b1BJTDVnYzBkNk1zWVlsRm9BSlA3TFBrMkkKajJGbm9ubm8ybUVHdW1XNTI5RHVGSDZnRHM0PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    service:
+      name: webhook-service
+      namespace: metallb-system
+      path: /validate-metallb-io-v1beta1-addresspool
+      port: 443
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: addresspoolvalidationwebhook.metallb.io
+  namespaceSelector: {}
+  objectSelector: {}
+  rules:
+  - apiGroups:
+    - metallb.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - addresspools
+    scope: '*'
+  sideEffects: None
+  timeoutSeconds: 10
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURFRENDQWZpZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFoTVJBd0RnWURWUVFLRXdkdFpYUmgKYkd4aU1RMHdDd1lEVlFRREV3UmpaWEowTUI0WERUSTBNREV3TWpBME16SXlNVm9YRFRNek1USXpNREExTXpJeQpNVm93SVRFUU1BNEdBMVVFQ2hNSGJXVjBZV3hzWWpFTk1Bc0dBMVVFQXhNRVkyVnlkRENDQVNJd0RRWUpLb1pJCmh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBSy9FVkM4Qk9wei9jcjBnRVJoL1d6aHJCKzR5eGVuTGtDcTEKb3k2TklyL1BlemsxNStZUmdleVBwRVFOOW8xeE9rNjJmbWJEd1FZOXdnaGczb3BiYWdhUWlQN2hmaXRrbldBZwpRQytibS9SR0ZLNmY2MUpRNmVPd21rTld4cW9iN3FiaDJpNGlxWHBKRThXMnNpdlU5cU45QjdxTXlMM2JIWmUvCmRVZTMyR3gxYzR3QjlpSWo5UDUvY1ZuYnl1VkV4eFFnaDM2ek0vdGROUlJudlIvc2Y1YWxGUHQwUC8va1lRZk0KYmR0YXBlbWJSSTRhR0JhOGlSQmlmRVRGQ1cxQUNTWS9DdmVjWVhGTVJWWlZIb0RvWnhvOWFhOEc4UlVJZUdkMApBTktaUldMTjNhdzBQMzg4U05JZy9qOVJTTXJnZ2VZNytxL1Mvc1JOdWtEYWxZMzNjWmNDQXdFQUFhTlRNRkV3CkRnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3SFFZRFZSME9CQllFRkw5djdVUTcKL0xZTFRjRWp6QTl2dWZGb0ZYb3BNQThHQTFVZEVRUUlNQWFDQkdObGNuUXdEUVlKS29aSWh2Y05BUUVMQlFBRApnZ0VCQUU1RXBCZ3lsdnMyaldoVnR3N3lOZ1NDalJiSlMzZGQ1STFjMVBtVWZlVmI0cXlrUDhreDRMaDMwMXV0CmpsRnRDTGYzU1FROGJiNnFqU2l1dDJNMmNLYm4vOER5YWhMV04ySlBIMHVUWUhOUXhtWU1tVFdhTkwvek9wMzQKMDdBVTFKUWNUZ3lkdnFjanpIQk5xcTFpSlVRLzRwWHRHaVp3bGlHNzBtSHI2MUxwWnRFZTFYZmdrZEJ1Z0t3WQpOYWtSTHBwNHpwUnZpakhHL05DTW44S0liczVoVFdodmk0bkhad0EyUHlDUGtERysyc3B4WDZRTE56OWc5bTZZClhPQlF1TVNZemJjK3l6cFU3ZGJnMTJlRGZXY0lEY3kyZlczdU85b1BJTDVnYzBkNk1zWVlsRm9BSlA3TFBrMkkKajJGbm9ubm8ybUVHdW1XNTI5RHVGSDZnRHM0PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    service:
+      name: webhook-service
+      namespace: metallb-system
+      path: /validate-metallb-io-v1beta1-bfdprofile
+      port: 443
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: bfdprofilevalidationwebhook.metallb.io
+  namespaceSelector: {}
+  objectSelector: {}
+  rules:
+  - apiGroups:
+    - metallb.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - DELETE
+    resources:
+    - bfdprofiles
+    scope: '*'
+  sideEffects: None
+  timeoutSeconds: 10
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURFRENDQWZpZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFoTVJBd0RnWURWUVFLRXdkdFpYUmgKYkd4aU1RMHdDd1lEVlFRREV3UmpaWEowTUI0WERUSTBNREV3TWpBME16SXlNVm9YRFRNek1USXpNREExTXpJeQpNVm93SVRFUU1BNEdBMVVFQ2hNSGJXVjBZV3hzWWpFTk1Bc0dBMVVFQXhNRVkyVnlkRENDQVNJd0RRWUpLb1pJCmh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBSy9FVkM4Qk9wei9jcjBnRVJoL1d6aHJCKzR5eGVuTGtDcTEKb3k2TklyL1BlemsxNStZUmdleVBwRVFOOW8xeE9rNjJmbWJEd1FZOXdnaGczb3BiYWdhUWlQN2hmaXRrbldBZwpRQytibS9SR0ZLNmY2MUpRNmVPd21rTld4cW9iN3FiaDJpNGlxWHBKRThXMnNpdlU5cU45QjdxTXlMM2JIWmUvCmRVZTMyR3gxYzR3QjlpSWo5UDUvY1ZuYnl1VkV4eFFnaDM2ek0vdGROUlJudlIvc2Y1YWxGUHQwUC8va1lRZk0KYmR0YXBlbWJSSTRhR0JhOGlSQmlmRVRGQ1cxQUNTWS9DdmVjWVhGTVJWWlZIb0RvWnhvOWFhOEc4UlVJZUdkMApBTktaUldMTjNhdzBQMzg4U05JZy9qOVJTTXJnZ2VZNytxL1Mvc1JOdWtEYWxZMzNjWmNDQXdFQUFhTlRNRkV3CkRnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3SFFZRFZSME9CQllFRkw5djdVUTcKL0xZTFRjRWp6QTl2dWZGb0ZYb3BNQThHQTFVZEVRUUlNQWFDQkdObGNuUXdEUVlKS29aSWh2Y05BUUVMQlFBRApnZ0VCQUU1RXBCZ3lsdnMyaldoVnR3N3lOZ1NDalJiSlMzZGQ1STFjMVBtVWZlVmI0cXlrUDhreDRMaDMwMXV0CmpsRnRDTGYzU1FROGJiNnFqU2l1dDJNMmNLYm4vOER5YWhMV04ySlBIMHVUWUhOUXhtWU1tVFdhTkwvek9wMzQKMDdBVTFKUWNUZ3lkdnFjanpIQk5xcTFpSlVRLzRwWHRHaVp3bGlHNzBtSHI2MUxwWnRFZTFYZmdrZEJ1Z0t3WQpOYWtSTHBwNHpwUnZpakhHL05DTW44S0liczVoVFdodmk0bkhad0EyUHlDUGtERysyc3B4WDZRTE56OWc5bTZZClhPQlF1TVNZemJjK3l6cFU3ZGJnMTJlRGZXY0lEY3kyZlczdU85b1BJTDVnYzBkNk1zWVlsRm9BSlA3TFBrMkkKajJGbm9ubm8ybUVHdW1XNTI5RHVGSDZnRHM0PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    service:
+      name: webhook-service
+      namespace: metallb-system
+      path: /validate-metallb-io-v1beta1-bgpadvertisement
+      port: 443
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: bgpadvertisementvalidationwebhook.metallb.io
+  namespaceSelector: {}
+  objectSelector: {}
+  rules:
+  - apiGroups:
+    - metallb.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - bgpadvertisements
+    scope: '*'
+  sideEffects: None
+  timeoutSeconds: 10
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURFRENDQWZpZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFoTVJBd0RnWURWUVFLRXdkdFpYUmgKYkd4aU1RMHdDd1lEVlFRREV3UmpaWEowTUI0WERUSTBNREV3TWpBME16SXlNVm9YRFRNek1USXpNREExTXpJeQpNVm93SVRFUU1BNEdBMVVFQ2hNSGJXVjBZV3hzWWpFTk1Bc0dBMVVFQXhNRVkyVnlkRENDQVNJd0RRWUpLb1pJCmh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBSy9FVkM4Qk9wei9jcjBnRVJoL1d6aHJCKzR5eGVuTGtDcTEKb3k2TklyL1BlemsxNStZUmdleVBwRVFOOW8xeE9rNjJmbWJEd1FZOXdnaGczb3BiYWdhUWlQN2hmaXRrbldBZwpRQytibS9SR0ZLNmY2MUpRNmVPd21rTld4cW9iN3FiaDJpNGlxWHBKRThXMnNpdlU5cU45QjdxTXlMM2JIWmUvCmRVZTMyR3gxYzR3QjlpSWo5UDUvY1ZuYnl1VkV4eFFnaDM2ek0vdGROUlJudlIvc2Y1YWxGUHQwUC8va1lRZk0KYmR0YXBlbWJSSTRhR0JhOGlSQmlmRVRGQ1cxQUNTWS9DdmVjWVhGTVJWWlZIb0RvWnhvOWFhOEc4UlVJZUdkMApBTktaUldMTjNhdzBQMzg4U05JZy9qOVJTTXJnZ2VZNytxL1Mvc1JOdWtEYWxZMzNjWmNDQXdFQUFhTlRNRkV3CkRnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3SFFZRFZSME9CQllFRkw5djdVUTcKL0xZTFRjRWp6QTl2dWZGb0ZYb3BNQThHQTFVZEVRUUlNQWFDQkdObGNuUXdEUVlKS29aSWh2Y05BUUVMQlFBRApnZ0VCQUU1RXBCZ3lsdnMyaldoVnR3N3lOZ1NDalJiSlMzZGQ1STFjMVBtVWZlVmI0cXlrUDhreDRMaDMwMXV0CmpsRnRDTGYzU1FROGJiNnFqU2l1dDJNMmNLYm4vOER5YWhMV04ySlBIMHVUWUhOUXhtWU1tVFdhTkwvek9wMzQKMDdBVTFKUWNUZ3lkdnFjanpIQk5xcTFpSlVRLzRwWHRHaVp3bGlHNzBtSHI2MUxwWnRFZTFYZmdrZEJ1Z0t3WQpOYWtSTHBwNHpwUnZpakhHL05DTW44S0liczVoVFdodmk0bkhad0EyUHlDUGtERysyc3B4WDZRTE56OWc5bTZZClhPQlF1TVNZemJjK3l6cFU3ZGJnMTJlRGZXY0lEY3kyZlczdU85b1BJTDVnYzBkNk1zWVlsRm9BSlA3TFBrMkkKajJGbm9ubm8ybUVHdW1XNTI5RHVGSDZnRHM0PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    service:
+      name: webhook-service
+      namespace: metallb-system
+      path: /validate-metallb-io-v1beta1-community
+      port: 443
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: communityvalidationwebhook.metallb.io
+  namespaceSelector: {}
+  objectSelector: {}
+  rules:
+  - apiGroups:
+    - metallb.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - communities
+    scope: '*'
+  sideEffects: None
+  timeoutSeconds: 10
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURFRENDQWZpZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFoTVJBd0RnWURWUVFLRXdkdFpYUmgKYkd4aU1RMHdDd1lEVlFRREV3UmpaWEowTUI0WERUSTBNREV3TWpBME16SXlNVm9YRFRNek1USXpNREExTXpJeQpNVm93SVRFUU1BNEdBMVVFQ2hNSGJXVjBZV3hzWWpFTk1Bc0dBMVVFQXhNRVkyVnlkRENDQVNJd0RRWUpLb1pJCmh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBSy9FVkM4Qk9wei9jcjBnRVJoL1d6aHJCKzR5eGVuTGtDcTEKb3k2TklyL1BlemsxNStZUmdleVBwRVFOOW8xeE9rNjJmbWJEd1FZOXdnaGczb3BiYWdhUWlQN2hmaXRrbldBZwpRQytibS9SR0ZLNmY2MUpRNmVPd21rTld4cW9iN3FiaDJpNGlxWHBKRThXMnNpdlU5cU45QjdxTXlMM2JIWmUvCmRVZTMyR3gxYzR3QjlpSWo5UDUvY1ZuYnl1VkV4eFFnaDM2ek0vdGROUlJudlIvc2Y1YWxGUHQwUC8va1lRZk0KYmR0YXBlbWJSSTRhR0JhOGlSQmlmRVRGQ1cxQUNTWS9DdmVjWVhGTVJWWlZIb0RvWnhvOWFhOEc4UlVJZUdkMApBTktaUldMTjNhdzBQMzg4U05JZy9qOVJTTXJnZ2VZNytxL1Mvc1JOdWtEYWxZMzNjWmNDQXdFQUFhTlRNRkV3CkRnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3SFFZRFZSME9CQllFRkw5djdVUTcKL0xZTFRjRWp6QTl2dWZGb0ZYb3BNQThHQTFVZEVRUUlNQWFDQkdObGNuUXdEUVlKS29aSWh2Y05BUUVMQlFBRApnZ0VCQUU1RXBCZ3lsdnMyaldoVnR3N3lOZ1NDalJiSlMzZGQ1STFjMVBtVWZlVmI0cXlrUDhreDRMaDMwMXV0CmpsRnRDTGYzU1FROGJiNnFqU2l1dDJNMmNLYm4vOER5YWhMV04ySlBIMHVUWUhOUXhtWU1tVFdhTkwvek9wMzQKMDdBVTFKUWNUZ3lkdnFjanpIQk5xcTFpSlVRLzRwWHRHaVp3bGlHNzBtSHI2MUxwWnRFZTFYZmdrZEJ1Z0t3WQpOYWtSTHBwNHpwUnZpakhHL05DTW44S0liczVoVFdodmk0bkhad0EyUHlDUGtERysyc3B4WDZRTE56OWc5bTZZClhPQlF1TVNZemJjK3l6cFU3ZGJnMTJlRGZXY0lEY3kyZlczdU85b1BJTDVnYzBkNk1zWVlsRm9BSlA3TFBrMkkKajJGbm9ubm8ybUVHdW1XNTI5RHVGSDZnRHM0PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    service:
+      name: webhook-service
+      namespace: metallb-system
+      path: /validate-metallb-io-v1beta1-ipaddresspool
+      port: 443
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: ipaddresspoolvalidationwebhook.metallb.io
+  namespaceSelector: {}
+  objectSelector: {}
+  rules:
+  - apiGroups:
+    - metallb.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - ipaddresspools
+    scope: '*'
+  sideEffects: None
+  timeoutSeconds: 10
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURFRENDQWZpZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFoTVJBd0RnWURWUVFLRXdkdFpYUmgKYkd4aU1RMHdDd1lEVlFRREV3UmpaWEowTUI0WERUSTBNREV3TWpBME16SXlNVm9YRFRNek1USXpNREExTXpJeQpNVm93SVRFUU1BNEdBMVVFQ2hNSGJXVjBZV3hzWWpFTk1Bc0dBMVVFQXhNRVkyVnlkRENDQVNJd0RRWUpLb1pJCmh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBSy9FVkM4Qk9wei9jcjBnRVJoL1d6aHJCKzR5eGVuTGtDcTEKb3k2TklyL1BlemsxNStZUmdleVBwRVFOOW8xeE9rNjJmbWJEd1FZOXdnaGczb3BiYWdhUWlQN2hmaXRrbldBZwpRQytibS9SR0ZLNmY2MUpRNmVPd21rTld4cW9iN3FiaDJpNGlxWHBKRThXMnNpdlU5cU45QjdxTXlMM2JIWmUvCmRVZTMyR3gxYzR3QjlpSWo5UDUvY1ZuYnl1VkV4eFFnaDM2ek0vdGROUlJudlIvc2Y1YWxGUHQwUC8va1lRZk0KYmR0YXBlbWJSSTRhR0JhOGlSQmlmRVRGQ1cxQUNTWS9DdmVjWVhGTVJWWlZIb0RvWnhvOWFhOEc4UlVJZUdkMApBTktaUldMTjNhdzBQMzg4U05JZy9qOVJTTXJnZ2VZNytxL1Mvc1JOdWtEYWxZMzNjWmNDQXdFQUFhTlRNRkV3CkRnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3SFFZRFZSME9CQllFRkw5djdVUTcKL0xZTFRjRWp6QTl2dWZGb0ZYb3BNQThHQTFVZEVRUUlNQWFDQkdObGNuUXdEUVlKS29aSWh2Y05BUUVMQlFBRApnZ0VCQUU1RXBCZ3lsdnMyaldoVnR3N3lOZ1NDalJiSlMzZGQ1STFjMVBtVWZlVmI0cXlrUDhreDRMaDMwMXV0CmpsRnRDTGYzU1FROGJiNnFqU2l1dDJNMmNLYm4vOER5YWhMV04ySlBIMHVUWUhOUXhtWU1tVFdhTkwvek9wMzQKMDdBVTFKUWNUZ3lkdnFjanpIQk5xcTFpSlVRLzRwWHRHaVp3bGlHNzBtSHI2MUxwWnRFZTFYZmdrZEJ1Z0t3WQpOYWtSTHBwNHpwUnZpakhHL05DTW44S0liczVoVFdodmk0bkhad0EyUHlDUGtERysyc3B4WDZRTE56OWc5bTZZClhPQlF1TVNZemJjK3l6cFU3ZGJnMTJlRGZXY0lEY3kyZlczdU85b1BJTDVnYzBkNk1zWVlsRm9BSlA3TFBrMkkKajJGbm9ubm8ybUVHdW1XNTI5RHVGSDZnRHM0PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    service:
+      name: webhook-service
+      namespace: metallb-system
+      path: /validate-metallb-io-v1beta1-l2advertisement
+      port: 443
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: l2advertisementvalidationwebhook.metallb.io
+  namespaceSelector: {}
+  objectSelector: {}
+  rules:
+  - apiGroups:
+    - metallb.io
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - l2advertisements
+    scope: '*'
+  sideEffects: None
+  timeoutSeconds: 10
